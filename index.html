@@ -164,8 +164,8 @@ button {
 }
 #floatingPlayer audio { width: 90%; }
 
-/* AI CHAT BUBBLE */
-#chatIcon {
+/* ASHEESH AI CHAT */
+#ai-btn {
     position: fixed;
     bottom: 80px;
     right: 20px;
@@ -181,20 +181,42 @@ button {
     z-index: 9999;
 }
 
-#chatBox {
-    position: fixed;
-    bottom: 140px;
-    right: 20px;
-    width: 280px;
+#ai-box {
+    width: 90%;
+    max-width: 340px;
     background: #111;
     border: 2px solid #d4af37;
+    padding: 15px;
     border-radius: 12px;
-    padding: 10px;
+    color: #fff;
+    position: fixed;
+    bottom: 150px;
+    right: 20px;
     display: none;
-    z-index: 9999;
+    box-shadow: 0 0 20px #d4af37aa;
 }
-#chatBox textarea {
-    height: 60px;
+
+#ai-box h3 {
+    margin-top: 0;
+    color: #d4af37;
+}
+
+#ai-input {
+    width: 100%;
+    height: 70px;
+    border-radius: 10px;
+    border: 2px solid #d4af37;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+}
+
+#ai-output {
+    margin-top: 10px;
+    padding: 10px;
+    background: #000;
+    border-radius: 8px;
+    border: 1px solid #d4af37;
 }
 </style>
 </head>
@@ -206,7 +228,7 @@ button {
     <div class="shine">ASHEESH SARKAR</div>
 </header>
 
-<!-- SLIDESHOW BANNER -->
+<!-- SLIDESHOW -->
 <div class="slideshow-container fade-in">
 
     <div class="mySlides">
@@ -225,7 +247,6 @@ button {
 
 <script>
 let slideIndex = 0;
-showSlides();
 function showSlides() {
     let slides = document.getElementsByClassName("mySlides");
     for (let i=0;i<slides.length;i++) slides[i].style.display="none";
@@ -234,6 +255,7 @@ function showSlides() {
     slides[slideIndex-1].style.display="block";
     setTimeout(showSlides, 3200);
 }
+showSlides();
 </script>
 
 <!-- NAVIGATION -->
@@ -245,17 +267,13 @@ function showSlides() {
     <a href="#contact">Contact</a>
 </nav>
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION -->
 <section id="home" class="fade-in">
     <h2>About Me</h2>
-    <p>
-        Namaste! Main Asheesh Sarkar hoon — ek music composer, songwriter 
-        aur content creator. Yeh meri official premium website hai jahan par 
-        meri sari music creations, videos, aur MP3 tracks available hain.
-    </p>
+    <p>Namaste! Main Asheesh Sarkar hoon — ek music composer, songwriter aur content creator.</p>
 </section>
 
-<!-- YOUTUBE VIDEOS -->
+<!-- MUSIC VIDEOS -->
 <section id="music" class="fade-in">
     <h2>My Music Videos</h2>
 
@@ -276,7 +294,7 @@ function showSlides() {
 
 </section>
 
-<!-- MP3 PLAYER SECTION -->
+<!-- MP3 PLAYER -->
 <section id="player" class="fade-in">
     <h2>🎧 MP3 Music Player</h2>
 
@@ -332,24 +350,58 @@ function showSlides() {
     <p>📌 Facebook: <a style="color:#d4af37" href="https://www.facebook.com/share/1C8p4hwmhg/">Click Here</a></p>
 </section>
 
-<!-- FLOATING MUSIC PLAYER -->
+<!-- FLOATING PLAYER -->
 <div id="floatingPlayer">
     <audio controls autoplay src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio>
 </div>
 
-<!-- AI CHAT BUBBLE -->
-<div id="chatIcon">💬</div>
+<!-- ASHEESH AI -->
+<div id="ai-btn" onclick="toggleAI()">💬</div>
 
-<div id="chatBox">
-    <p style="color:#d4af37;font-weight:bold;">Asheesh AI</p>
-    <textarea placeholder="Ask something..."></textarea>
+<div id="ai-box">
+    <h3>Asheesh AI</h3>
+    <div id="ai-output">Hi Asheesh 👋</div>
+    <textarea id="ai-input" placeholder="Type here..."></textarea>
+    <button onclick="sendAI()" style="margin-top:10px;padding:8px 12px;border:none;background:#d4af37;color:#000;border-radius:6px;font-weight:bold;width:100%;">Send</button>
 </div>
 
 <script>
-document.getElementById("chatIcon").onclick = function() {
-    let box = document.getElementById("chatBox");
-    box.style.display = box.style.display === "block" ? "none" : "block";
-};
+function toggleAI() {
+    let box = document.getElementById("ai-box");
+    box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+}
+
+function sendAI() {
+    let input = document.getElementById("ai-input").value.trim();
+    let output = document.getElementById("ai-output");
+
+    if (input === "") return;
+
+    let msg = input.toLowerCase();
+    let reply = "Main samajh raha hoon, aur seekh raha hoon 🙂";
+
+    if (msg.includes("hello") || msg.includes("hi") || msg.includes("namaste")) {
+        reply = "Namaste Asheesh! Kaise ho? 😊";
+    }
+    else if (msg.includes("music") || msg.includes("song")) {
+        reply = "Aapke music section me sab premium tracks available hain 🎧🔥";
+    }
+    else if (msg.includes("kaun") || msg.includes("who are you")) {
+        reply = "Main Asheesh AI hoon — aapka personal assistant 🤖💛";
+    }
+    else if (msg.includes("help") || msg.includes("madad")) {
+        reply = "Main website aur music dono me help kar sakta hoon 😊";
+    }
+    else if (msg.includes("bye")) {
+        reply = "Bye Asheesh! Apna khayal rakhna 💛";
+    }
+    else {
+        reply = "Samajh gaya! Kuch aur puchna chaho to batao 😊";
+    }
+
+    output.innerHTML = "<b>You:</b> " + input + "<br><br><b>AI:</b> " + reply;
+    document.getElementById("ai-input").value = "";
+}
 </script>
 
 <!-- FOOTER -->
@@ -358,4 +410,4 @@ document.getElementById("chatIcon").onclick = function() {
 </footer>
 
 </body>
-</html>
+            </html>
