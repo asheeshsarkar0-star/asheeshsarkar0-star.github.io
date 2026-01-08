@@ -8,41 +8,50 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
+    font-family: 'Poppins', sans-serif;
+    background: #000;
     color: #fff;
 }
 
 /* HEADER */
 header {
     text-align: center;
-    padding: 10px 0;
-    background: #000;
+    padding: 20px 0;
+    background: linear-gradient(to bottom, #000, #111);
 }
 header img {
-    width: 140px;
-    margin-top: 10px;
+    width: 160px;
+    border-radius: 10px;
 }
 
-/* BANNER */
+/* PREMIUM GOLD BANNER */
 .banner {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    margin-bottom: 15px;
 }
 
 /* NAVIGATION */
 nav {
-    background: #222;
+    background: #111;
     display: flex;
     justify-content: center;
-    padding: 10px;
-    gap: 25px;
+    padding: 12px;
+    gap: 30px;
+    border-bottom: 2px solid gold;
 }
 
 nav a {
     text-decoration: none;
-    color: #00eaff;
-    font-size: 18px;
+    color: gold;
+    font-size: 19px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px gold;
 }
 
 /* SECTIONS */
@@ -50,52 +59,65 @@ section {
     padding: 25px;
 }
 
+/* GOLD TITLES */
 h2 {
-    color: #00eaff;
+    color: gold;
+    font-size: 26px;
+    border-left: 4px solid gold;
+    padding-left: 10px;
+}
+
+h3 {
+    color: #ffdd55;
+    margin-bottom: 8px;
 }
 
 /* MUSIC VIDEO BOX */
 .video-box {
     margin: 20px 0;
+    background: #111;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid gold;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.25);
 }
 
 iframe {
     width: 100%;
-    height: 220px;
+    height: 230px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 /* GALLERY */
 .gallery img {
     width: 100%;
-    border-radius: 10px;
-    margin: 10px 0;
+    border-radius: 12px;
+    margin: 12px 0;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+    border: 1px solid #444;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 15px 0;
-    margin-top: 20px;
+    padding: 18px;
     background: #000;
-    color: #00eaff;
-    font-size: 14px;
+    color: gold;
+    margin-top: 40px;
+    border-top: 2px solid gold;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER (POSTER) -->
 <header>
     <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000006e687209bab84b93c50c5727.png">
 </header>
 
-<!-- BANNER -->
 <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000017807209ad53b0203c61d191.png" class="banner">
 
-<!-- NAVIGATION -->
 <nav>
     <a href="#home">Home</a>
     <a href="#music">Music</a>
@@ -103,17 +125,15 @@ footer {
     <a href="#contact">Contact</a>
 </nav>
 
-<!-- HOME SECTION -->
 <section id="home">
     <h2>About Me</h2>
     <p>
-        Namaste! Main Asheesh Sarkar hoon — ek music composer, songwriter 
-        aur content creator. Yeh meri official website hai jahan par 
-        meri sari music creations, videos, aur updates aapko milenge.
+        Namaste! Main <strong>Asheesh Sarkar</strong> hoon — ek music composer,
+        songwriter aur content creator. Yeh meri official premium website hai
+        jahan par meri sari music creations, videos aur updates milenge.
     </p>
 </section>
 
-<!-- MUSIC SECTION -->
 <section id="music">
     <h2>My Music</h2>
 
@@ -134,36 +154,34 @@ footer {
 
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
     <h2>Gallery</h2>
 
     <div class="gallery">
 
-<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/13166c05c4574a9d18cd6a5101471f54412219a3/file_000000005034720792453fffe09544aa%20(1).png">
+        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000005034720792453fffe09544aa%20(1).png">
 
-<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/13166c05c4574a9d18cd6a5101471f54412219a3/file_0000000067c87207a6d265ab32f0a34c.png">
+        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000067c87207a6d265ab32f0a34c.png">
 
-<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/13166c05c4574a9d18cd6a5101471f54412219a3/file_00000000589872078168a1caa90997b3.png">
+        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000589872078168a1caa90997b3.png">
 
-<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/13166c05c4574a9d18cd6a5101471f54412219a3/file_00000000862c71fa8ef54358a8a6c2ea.png">
+        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000862c71fa8ef54358a8a6c2ea.png">
 
     </div>
 </section>
 
-<!-- CONTACT SECTION -->
 <section id="contact">
     <h2>Contact & Social Links</h2>
 
-    <p>📌 YouTube: <a href="https://youtube.com/@beatjunctionn" style="color:#00eaff">Click Here</a></p>
-    <p>📌 Instagram (Music): <a href="https://www.instagram.com/junction.beat" style="color:#00eaff">Click Here</a></p>
-    <p>📌 Instagram (Reaction): <a href="https://www.instagram.com/reaction_time23" style="color:#00eaff">Click Here</a></p>
-    <p>📌 Facebook: <a href="https://www.facebook.com/share/1C8p4hwmhg/" style="color:#00eaff">Click Here</a></p>
+    <p>📌 YouTube: <a href="https://youtube.com/@beatjunctionn" style="color:gold">Click Here</a></p>
+    <p>📌 Instagram (Music): <a href="https://www.instagram.com/junction.beat" style="color:gold">Click Here</a></p>
+    <p>📌 Instagram (Reaction): <a href="https://www.instagram.com/reaction_time23" style="color:gold">Click Here</a></p>
+    <p>📌 Facebook: <a href="https://www.facebook.com/share/1C8p4hwmhg/" style="color:gold">Click Here</a></p>
+
 </section>
 
-<!-- FOOTER -->
 <footer>
-© 2026 Asheesh Sarkar | All Rights Reserved.
+    © 2026 Asheesh Sarkar | All Rights Reserved.
 </footer>
 
 </body>
