@@ -11,6 +11,23 @@ body {
     font-family: Arial, sans-serif;
     background: #0d0d0d;
     color: #fff;
+    overflow-x: hidden;
+}
+
+/* ANIMATIONS */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+.slide-up {
+    animation: slideUp 1.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 /* HEADER */
@@ -61,15 +78,25 @@ h2 {
     text-shadow: 0 0 10px #d4af37;
 }
 
-/* MUSIC VIDEO BOX */
+/* MUSIC PLAYER */
+.music-box {
+    background: #111;
+    padding: 15px;
+    margin: 15px 0;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #d4af37aa;
+}
+.music-title {
+    font-size: 18px;
+    color: #d4af37;
+    margin-bottom: 6px;
+}
+
+/* VIDEO */
 .video-box {
     margin: 20px 0;
 }
-
-h3 {
-    color: #d4af37;
-}
-
 iframe {
     width: 100%;
     height: 220px;
@@ -86,6 +113,33 @@ iframe {
     box-shadow: 0 0 12px #d4af37aa;
 }
 
+/* CONTACT FORM */
+form {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #d4af37;
+}
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #000;
+    border: 1px solid #d4af37;
+    color: #fff;
+    border-radius: 8px;
+}
+button {
+    background: #d4af37;
+    color: #000;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 /* FOOTER */
 footer {
     background: #000;
@@ -100,22 +154,21 @@ footer {
 
 <body>
 
-<header>
-    <!-- POSTER (NEW POSTER ADDED HERE) -->
-    <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000650c7209b41d602902782a9a.png">
+<header class="fade-in">
+    <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000005034720792453fffe09544aa%20(1).png">
 </header>
 
-<!-- BANNER -->
-<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000017807209ad53b0203c61d191.png" class="banner">
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000017807209ad53b0203c61d191.png" class="banner slide-up">
 
-<nav>
+<nav class="fade-in">
     <a href="#home">Home</a>
     <a href="#music">Music</a>
+    <a href="#player">MP3 Player</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="home">
+<section id="home" class="fade-in">
     <h2>About Me</h2>
     <p>
         Namaste! Main Asheesh Sarkar hoon — ek music composer, songwriter 
@@ -124,27 +177,74 @@ footer {
     </p>
 </section>
 
-<section id="music">
-    <h2>My Music</h2>
+<section id="music" class="fade-in">
+    <h2>My Music Videos</h2>
 
-    <div class="video-box">
+    <div class="video-box slide-up">
         <h3>⭐ Prem Ki Vyatha</h3>
         <iframe src="https://www.youtube.com/embed/_FR2jTaPEio"></iframe>
     </div>
 
-    <div class="video-box">
+    <div class="video-box slide-up">
         <h3>⭐ Kaash Tere Hote</h3>
         <iframe src="https://www.youtube.com/embed/H6ofrzz8yXM"></iframe>
     </div>
 
-    <div class="video-box">
+    <div class="video-box slide-up">
         <h3>⭐ Dhadkano Ki Guzarish</h3>
         <iframe src="https://www.youtube.com/embed/nHnow-uS8C4"></iframe>
     </div>
 
 </section>
 
-<section id="gallery">
+<section id="player" class="fade-in">
+    <h2>🎧 MP3 Music Player</h2>
+
+    <!-- SONG 1 -->
+    <div class="music-box">
+        <div class="music-title">Dhakano Ki Guzaarish</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio>
+    </div>
+
+    <!-- SONG 2 -->
+    <div class="music-box">
+        <div class="music-title">Palko Me Chupa Lu</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Palko%20Me%20Chupa%20Lu%20.mp3"></audio>
+    </div>
+
+    <!-- SONG 3 -->
+    <div class="music-box">
+        <div class="music-title">Prem Ki Vyatha 2</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Prem%20Ki%20Vyatha%202.mp3"></audio>
+    </div>
+
+    <!-- SONG 4 -->
+    <div class="music-box">
+        <div class="music-title">Tere Ishq Me</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Ishq%20Me.mp3"></audio>
+    </div>
+
+    <!-- SONG 5 -->
+    <div class="music-box">
+        <div class="music-title">Tere Naam Ki Dhadkan</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"></audio>
+    </div>
+
+    <!-- SONG 6 -->
+    <div class="music-box">
+        <div class="music-title">Teri Baahon Me Khoya Hu</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"></audio>
+    </div>
+
+    <!-- SONG 7 -->
+    <div class="music-box">
+        <div class="music-title">Tujhse Juraaa Har Pal</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"></audio>
+    </div>
+
+</section>
+
+<section id="gallery" class="fade-in">
     <h2>Gallery</h2>
 
     <div class="gallery">
@@ -160,8 +260,15 @@ footer {
     </div>
 </section>
 
-<section id="contact">
-    <h2>Contact & Social Links</h2>
+<section id="contact" class="fade-in">
+    <h2>Contact</h2>
+
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 
     <p>📌 YouTube: <a href="https://youtube.com/@beatjunctionn" style="color:#d4af37">Click Here</a></p>
     <p>📌 Instagram (Music): <a href="https://www.instagram.com/junction.beat" style="color:#d4af37">Click Here</a></p>
