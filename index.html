@@ -3,180 +3,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asheesh Sarkar - Official Website (Premium)</title>
+<title>Asheesh Sarkar - Official Premium Website</title>
 
 <style>
+/* BASIC */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background: #0d0d0d;
+    font-family: Arial, sans-serif;
     color: #fff;
     overflow-x: hidden;
 }
 
-/* ANIMATIONS */
-.fade-in {
-    animation: fadeIn 1.5s ease-in-out;
+/* GOLD SHINE NAME */
+.shine {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shineAnim 3s infinite linear;
 }
-.slide-up {
-    animation: slideUp 1.5s ease-in-out;
+@keyframes shineAnim {
+    0% { background-position: -200px; }
+    100% { background-position: 200px; }
 }
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes slideUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+
+/* ANIMATION */
+.fade-in { animation: fadeIn 1.5s ease; }
+.slide-up { animation: slideUp 1.5s ease; }
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes slideUp { from { transform:translateY(30px);opacity:0;} to { transform:translateY(0);opacity:1;} }
 
 /* HEADER */
 header {
     text-align: center;
-    padding: 15px 0;
+    padding: 20px 0;
     background: #000;
     border-bottom: 2px solid #d4af37;
 }
-header img {
-    width: 150px;
-    margin-top: 10px;
-}
+header img { width: 150px; }
 
-/* BANNER */
-.banner {
+/* SLIDESHOW */
+.slideshow-container {
+    position: relative;
     width: 100%;
-    border-radius: 12px;
-    border: 3px solid #d4af37;
-    box-shadow: 0 0 20px #d4af37aa;
-    margin-top: 10px;
+    height: 230px;
+    overflow: hidden;
+}
+.mySlides {
+    width: 100%;
+    height: 230px;
+    position: absolute;
+    animation: fadeIn 2s ease;
+}
+.mySlides img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-bottom: 3px solid #d4af37;
 }
 
 /* NAVIGATION */
 nav {
     background: #111;
-    display: flex;
-    justify-content: center;
-    padding: 12px;
-    gap: 30px;
     border-bottom: 2px solid #d4af37;
+    padding: 12px;
+    text-align: center;
 }
 nav a {
-    text-decoration: none;
     color: #d4af37;
+    margin: 0 18px;
+    text-decoration: none;
     font-size: 20px;
     font-weight: bold;
 }
 
 /* SECTIONS */
-section {
-    padding: 25px;
-}
+section { padding: 25px; }
 
 h2 {
     color: #d4af37;
-    font-size: 28px;
     text-shadow: 0 0 10px #d4af37;
+    font-size: 28px;
 }
 
-/* MUSIC PLAYER */
-.music-box {
-    background: #111;
-    padding: 15px;
-    margin: 15px 0;
-    border: 2px solid #d4af37;
-    border-radius: 10px;
-    box-shadow: 0 0 12px #d4af37aa;
-}
-.music-title {
-    font-size: 18px;
-    color: #d4af37;
-    margin-bottom: 6px;
-}
-
-/* VIDEO */
+/* YOUTUBE VIDEO */
 .video-box {
     margin: 20px 0;
 }
 iframe {
     width: 100%;
     height: 220px;
+    border-radius: 10px;
+    border: 2px solid #d4af37;
+}
+
+/* MUSIC PLAYER BOX */
+.music-box {
+    background: #111;
     border: 2px solid #d4af37;
     border-radius: 10px;
+    padding: 15px;
+    margin: 12px 0;
 }
+.music-title {
+    color: #d4af37;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+audio { width: 100%; }
 
 /* GALLERY */
 .gallery img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 2px solid #d4af37;
-    margin: 12px 0;
-    box-shadow: 0 0 12px #d4af37aa;
+    margin: 10px 0;
 }
 
 /* CONTACT FORM */
 form {
     background: #111;
-    padding: 20px;
-    border-radius: 10px;
     border: 2px solid #d4af37;
+    border-radius: 10px;
+    padding: 20px;
 }
 input, textarea {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
     background: #000;
     border: 1px solid #d4af37;
     color: #fff;
+    padding: 12px;
+    margin: 10px 0;
     border-radius: 8px;
 }
 button {
+    width: 100%;
     background: #d4af37;
     color: #000;
     padding: 12px;
-    width: 100%;
     border: none;
-    border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
+    border-radius: 10px;
 }
 
-/* FOOTER */
-footer {
+/* FLOATING MUSIC PLAYER (BOTTOM BAR) */
+#floatingPlayer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background: #000;
-    padding: 12px;
-    text-align: center;
-    font-size: 16px;
-    color: #d4af37;
     border-top: 2px solid #d4af37;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
+}
+#floatingPlayer audio { width: 90%; }
+
+/* AI CHAT BUBBLE */
+#chatIcon {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    background: #d4af37;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#chatBox {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 280px;
+    background: #111;
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 10px;
+    display: none;
+    z-index: 9999;
+}
+#chatBox textarea {
+    height: 60px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="fade-in">
-    <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000005034720792453fffe09544aa%20(1).png">
+    <div class="shine">ASHEESH SARKAR</div>
 </header>
 
-<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000017807209ad53b0203c61d191.png" class="banner slide-up">
+<!-- SLIDESHOW BANNER -->
+<div class="slideshow-container fade-in">
 
+    <div class="mySlides">
+        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000017807209ad53b0203c61d191.png">
+    </div>
+
+    <div class="mySlides">
+        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000650c7209b41d602902782a9a.png">
+    </div>
+
+    <div class="mySlides">
+        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000005034720792453fffe09544aa%20(1).png">
+    </div>
+
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+function showSlides() {
+    let slides = document.getElementsByClassName("mySlides");
+    for (let i=0;i<slides.length;i++) slides[i].style.display="none";
+    slideIndex++;
+    if (slideIndex > slides.length) slideIndex = 1;
+    slides[slideIndex-1].style.display="block";
+    setTimeout(showSlides, 3200);
+}
+</script>
+
+<!-- NAVIGATION -->
 <nav class="fade-in">
     <a href="#home">Home</a>
-    <a href="#music">Music</a>
-    <a href="#player">MP3 Player</a>
+    <a href="#music">Videos</a>
+    <a href="#player">Music Player</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
 </nav>
 
+<!-- ABOUT -->
 <section id="home" class="fade-in">
     <h2>About Me</h2>
     <p>
         Namaste! Main Asheesh Sarkar hoon — ek music composer, songwriter 
-        aur content creator. Yeh meri official website hai jahan par 
-        meri sari music creations, videos, aur updates aapko milenge.
+        aur content creator. Yeh meri official premium website hai jahan par 
+        meri sari music creations, videos, aur MP3 tracks available hain.
     </p>
 </section>
 
+<!-- YOUTUBE VIDEOS -->
 <section id="music" class="fade-in">
     <h2>My Music Videos</h2>
 
@@ -197,90 +276,86 @@ footer {
 
 </section>
 
+<!-- MP3 PLAYER SECTION -->
 <section id="player" class="fade-in">
     <h2>🎧 MP3 Music Player</h2>
 
-    <!-- SONG 1 -->
-    <div class="music-box">
-        <div class="music-title">Dhakano Ki Guzaarish</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio>
-    </div>
+    <div class="music-box"><div class="music-title">Dhakano Ki Guzaarish</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio></div>
 
-    <!-- SONG 2 -->
-    <div class="music-box">
-        <div class="music-title">Palko Me Chupa Lu</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Palko%20Me%20Chupa%20Lu%20.mp3"></audio>
-    </div>
+    <div class="music-box"><div class="music-title">Palko Me Chupa Lu</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Palko%20Me%20Chupa%20Lu%20.mp3"></audio></div>
 
-    <!-- SONG 3 -->
-    <div class="music-box">
-        <div class="music-title">Prem Ki Vyatha 2</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Prem%20Ki%20Vyatha%202.mp3"></audio>
-    </div>
+    <div class="music-box"><div class="music-title">Prem Ki Vyatha 2</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Prem%20Ki%20Vyatha%202.mp3"></audio></div>
 
-    <!-- SONG 4 -->
-    <div class="music-box">
-        <div class="music-title">Tere Ishq Me</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Ishq%20Me.mp3"></audio>
-    </div>
+    <div class="music-box"><div class="music-title">Tere Ishq Me</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Ishq%20Me.mp3"></audio></div>
 
-    <!-- SONG 5 -->
-    <div class="music-box">
-        <div class="music-title">Tere Naam Ki Dhadkan</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"></audio>
-    </div>
+    <div class="music-box"><div class="music-title">Tere Naam Ki Dhadkan</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"></audio></div>
 
-    <!-- SONG 6 -->
-    <div class="music-box">
-        <div class="music-title">Teri Baahon Me Khoya Hu</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"></audio>
-    </div>
+    <div class="music-box"><div class="music-title">Teri Baahon Me Khoya Hu</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"></audio></div>
 
-    <!-- SONG 7 -->
-    <div class="music-box">
-        <div class="music-title">Tujhse Juraaa Har Pal</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"></audio>
-    </div>
+    <div class="music-box"><div class="music-title">Tujhse Juraaa Har Pal</div>
+        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"></audio></div>
 
 </section>
 
+<!-- GALLERY -->
 <section id="gallery" class="fade-in">
     <h2>Gallery</h2>
-
     <div class="gallery">
-
         <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000005034720792453fffe09544aa%20(1).png">
-
         <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000067c87207a6d265ab32f0a34c.png">
-
         <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000589872078168a1caa90997b3.png">
-
         <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000862c71fa8ef54358a8a6c2ea.png">
-        
-<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000650c7209b41d602902782a9a.png">
+        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000650c7209b41d602902782a9a.png">
     </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="fade-in">
     <h2>Contact</h2>
 
     <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
         <textarea rows="5" placeholder="Your Message"></textarea>
         <button type="submit">Send Message</button>
     </form>
 
-    <p>📌 YouTube: <a href="https://youtube.com/@beatjunctionn" style="color:#d4af37">Click Here</a></p>
-    <p>📌 Instagram (Music): <a href="https://www.instagram.com/junction.beat" style="color:#d4af37">Click Here</a></p>
-    <p>📌 Instagram (Reaction): <a href="https://www.instagram.com/reaction_time23" style="color:#d4af37">Click Here</a></p>
-    <p>📌 Facebook: <a href="https://www.facebook.com/share/1C8p4hwmhg/" style="color:#d4af37">Click Here</a></p>
-
+    <p>📌 YouTube: <a style="color:#d4af37" href="https://youtube.com/@beatjunctionn">Click Here</a></p>
+    <p>📌 Instagram Music: <a style="color:#d4af37" href="https://www.instagram.com/junction.beat">Click Here</a></p>
+    <p>📌 Instagram Reaction: <a style="color:#d4af37" href="https://www.instagram.com/reaction_time23">Click Here</a></p>
+    <p>📌 Facebook: <a style="color:#d4af37" href="https://www.facebook.com/share/1C8p4hwmhg/">Click Here</a></p>
 </section>
 
+<!-- FLOATING MUSIC PLAYER -->
+<div id="floatingPlayer">
+    <audio controls autoplay src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio>
+</div>
+
+<!-- AI CHAT BUBBLE -->
+<div id="chatIcon">💬</div>
+
+<div id="chatBox">
+    <p style="color:#d4af37;font-weight:bold;">Asheesh AI</p>
+    <textarea placeholder="Ask something..."></textarea>
+</div>
+
+<script>
+document.getElementById("chatIcon").onclick = function() {
+    let box = document.getElementById("chatBox");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+};
+</script>
+
+<!-- FOOTER -->
 <footer>
     © 2026 Asheesh Sarkar | All Rights Reserved.
 </footer>
 
 </body>
-            </html>
+    </html>
