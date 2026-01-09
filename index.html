@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Asheesh Sarkar - Premium Music Website</title>
 
-<!-- ✅ PWA Manifest -->
+<!-- PWA Manifest -->
 <link rel="manifest" href="manifest.json">
 
-<!-- ✅ Icons -->
-<link rel="icon" sizes="192x192" href="icon-192.png">
-<link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+<!-- Icons -->
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-512.png">
 
-<!-- ✅ Service Worker Register -->
+<!-- Service Worker Register -->
 <script>
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js")
@@ -25,29 +25,23 @@ if ("serviceWorker" in navigator) {
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#0d0d0d;font-family:Arial;color:#fff;overflow-x:hidden;}
 
-/* HEADER */
 header{text-align:center;padding:20px;background:#000;border-bottom:2px solid #d4af37;}
 .shine{font-size:32px;font-weight:bold;background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
 -webkit-background-clip:text;color:transparent;}
 
-/* SLIDESHOW */
 .slides{width:100%;height:260px;position:relative;overflow:hidden;}
 .slide{width:100%;height:260px;position:absolute;opacity:0;transition:.8s;}
 .slide img{width:100%;height:260px;object-fit:cover;}
 .slide.active{opacity:1;}
 
-/* NAVIGATION */
 nav{text-align:center;padding:14px 0;background:#111;border-bottom:2px solid #d4af37;}
 nav a{color:#d4af37;text-decoration:none;font-size:19px;margin:0 20px;font-weight:bold;}
 
-/* SECTIONS */
 section{padding:25px;}
 h2{color:#d4af37;font-size:26px;text-shadow:0 0 8px #d4af37;margin-bottom:10px;}
 
-/* YOUTUBE */
 iframe{width:100%;height:220px;border:2px solid #d4af37;border-radius:10px;margin:12px 0;}
 
-/* MUSIC PLAYER */
 .player-box{background:#111;padding:20px;border-radius:12px;border:2px solid #d4af37;margin-top:20px;}
 #playerTitle{color:#d4af37;font-size:20px;margin-bottom:8px;}
 #mainPlayer{width:100%;border-radius:10px;margin-bottom:15px;}
@@ -58,58 +52,51 @@ font-size:28px;background:#d4af37;color:#000;width:55px;height:55px;
 border-radius:50%;display:flex;justify-content:center;align-items:center;
 cursor:pointer;font-weight:bold;box-shadow:0 0 10px #d4af37aa;}
 
-/* PLAYLIST */
 .track{background:#000;border:1px solid #d4af37;padding:12px;border-radius:10px;margin:8px 0;cursor:pointer;}
 .track:hover{background:#222;}
 
-/* ALBUM BUTTONS */
 .album-btn{background:#d4af37;color:#000;padding:15px;border-radius:12px;font-weight:bold;text-align:center;margin:12px 0;font-size:18px;cursor:pointer;}
 
-/* SONG HELP CENTER */
 .help-box{background:#111;border:2px solid #d4af37;border-radius:12px;padding:20px;margin-top:20px;}
 .help-box input,.help-box textarea{
 width:100%;padding:12px;margin:10px 0;background:#000;border:1px solid #d4af37;color:#fff;border-radius:8px;}
 .help-box button{
 width:100%;padding:12px;background:#d4af37;color:#000;font-weight:bold;border-radius:8px;font-size:17px;cursor:pointer;}
 
-/* GALLERY */
 .gallery img{width:100%;border:2px solid #d4af37;border-radius:12px;margin:10px 0;}
 
-/* CONTACT */
 form{background:#111;padding:20px;border-radius:12px;border:2px solid #d4af37;}
 input,textarea{width:100%;padding:12px;margin:10px 0;background:#000;border:1px solid #d4af37;color:#fff;border-radius:8px;}
 button{width:100%;padding:12px;background:#d4af37;color:#000;font-weight:bold;border-radius:8px;}
 
-/* CHAT BOX */
 #chatBtn{
 position:fixed;bottom:80px;right:20px;width:60px;height:60px;background:#25D366;
 border-radius:50%;display:flex;justify-content:center;align-items:center;
 font-size:30px;color:#fff;cursor:pointer;z-index:999;}
+
 #chatWindow{
 position:fixed;bottom:150px;right:20px;width:300px;background:#111;border:2px solid #25D366;
 border-radius:12px;padding:10px;display:none;z-index:9999;}
+
 #chatMessages{
 height:200px;overflow-y:auto;padding:10px;background:#000;border:1px solid #25D366;border-radius:8px;margin-bottom:10px;}
-.chatBubble{
-background:#25D366;padding:8px 12px;margin:6px 0;border-radius:8px;color:#000;font-weight:bold;width:fit-content;}
 
-#chatInput{width:100%;padding:10px;background:#000;color:#fff;border:1px solid #25D366;border-radius:8px;margin-bottom:10px;}
-#sendMsg{width:100%;padding:10px;background:#25D366;color:#000;font-weight:bold;border-radius:8px;cursor:pointer;}
+.chatBubble{background:#25D366;padding:8px 12px;margin:6px 0;border-radius:8px;color:#000;font-weight:bold;width:fit-content;}
 
-/* FOOTER */
 footer{text-align:center;padding:20px;background:#000;border-top:2px solid #d4af37;margin-top:20px;}
 </style>
 </head>
 
 <body>
 
-<header><div class="shine">ASHEESH SARKAR</div></header>
+<header>
+  <div class="shine">ASHEESH SARKAR</div>
+</header>
 
-<!-- SLIDESHOW -->
 <div class="slides">
-<div class="slide active"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000017807209ad53b0203c61d191.png"></div>
-<div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000650c7209b41d602902782a9a.png"></div>
-<div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000005034720792453fffe09544aa%20(1).png"></div>
+  <div class="slide active"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000017807209ad53b0203c61d191.png"></div>
+  <div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000650c7209b41d602902782a9a.png"></div>
+  <div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000005034720792453fffe09544aa%20(1).png"></div>
 </div>
 
 <script>
@@ -143,7 +130,6 @@ slides[s].classList.add("active");
 <iframe src="https://www.youtube.com/embed/nHnow-uS8C4"></iframe>
 </section>
 
-<!-- ALBUM / PLAYER SECTION -->
 <section id="album">
 <h2>🎵 Albums</h2>
 
@@ -179,10 +165,11 @@ let album1=[
  {title:"Tere Ishq Me",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Ishq%20Me.mp3"},
  {title:"Teri Baahon Me Khoya Hu",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"}
 ];
+
 let album2=[
  {title:"Palko Me Chupa Lu",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Palko%20Me%20Chupa%20Lu%20.mp3"},
  {title:"Tere Naam Ki Dhadkan",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"},
- {title:"Tujhse Juraa Har Pal",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
+ {title:"Tujhse Juraa Har Pal",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
 ];
 
 let currentAlbum=[];let index=0;
@@ -214,7 +201,6 @@ function nextTrack(){index=(index+1)%currentAlbum.length;playTrack(index);}
 function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length;playTrack(index);}
 </script>
 
-<!-- SONG HELP CENTER -->
 <section id="help">
 <h2>📩 Song Help Center</h2>
 <div class="help-box">
@@ -227,7 +213,6 @@ function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length;pla
 </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
 <h2>Gallery</h2>
 <div class="gallery">
@@ -236,7 +221,6 @@ function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length;pla
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
 <h2>Contact</h2>
 <form>
@@ -249,10 +233,8 @@ function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length;pla
 
 <footer>© 2026 Asheesh Sarkar | All Rights Reserved.</footer>
 
-<!-- CHAT BUTTON -->
-<div id="chatBtn" onclick="toggleChat()">💬</div>
+<button id="chatBtn" onclick="toggleChat()">💬</button>
 
-<!-- CHAT WINDOW -->
 <div id="chatWindow">
 <div id="chatMessages"></div>
 <input id="chatInput" placeholder="Type your message...">
@@ -264,7 +246,6 @@ function toggleChat(){
 let w=document.getElementById("chatWindow");
 w.style.display=(w.style.display==="block")?"none":"block";
 }
-
 function sendChat(){
 let msg=document.getElementById("chatInput").value.trim();
 if(!msg)return;
@@ -276,4 +257,4 @@ box.scrollTop=box.scrollHeight;
 </script>
 
 </body>
- </html>
+                                               </html>
