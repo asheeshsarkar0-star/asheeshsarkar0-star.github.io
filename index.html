@@ -36,51 +36,25 @@ iframe{width:100%;height:220px;border:2px solid #d4af37;border-radius:10px;margi
 #playerTitle{color:#d4af37;font-size:20px;margin-bottom:8px;}
 #mainPlayer{width:100%;border-radius:10px;margin-bottom:15px;}
 
-.controls{
- display:flex;
- justify-content:center;
- gap:25px;
- margin:12px 0;
-}
-.control-btn{
- width:55px;height:55px;
- background:#d4af37;
- color:#000;
- border-radius:50%;
- display:flex;
- justify-content:center;
- align-items:center;
- font-size:26px;
- font-weight:bold;
- cursor:pointer;
- box-shadow:0 0 12px #d4af37aa;
-}
-#repeatBtn.active{background:#fff;color:#000;}
+.controls{display:flex;justify-content:center;gap:20px;margin:15px 0;}
+.controls div{
+font-size:28px;background:#d4af37;color:#000;width:55px;height:55px;
+border-radius:50%;display:flex;justify-content:center;align-items:center;
+cursor:pointer;font-weight:bold;box-shadow:0 0 10px #d4af37aa;}
 
 /* PLAYLIST */
-.track{
- background:#000;
- border:1px solid #d4af37;
- padding:12px;
- border-radius:10px;
- margin:8px 0;
- cursor:pointer;
- font-size:16px;
-}
+.track{background:#000;border:1px solid #d4af37;padding:12px;border-radius:10px;margin:8px 0;cursor:pointer;}
 .track:hover{background:#222;}
 
 /* ALBUM BUTTONS */
-.album-btn{
- background:#d4af37;
- color:#000;
- padding:15px;
- border-radius:12px;
- font-weight:bold;
- text-align:center;
- margin:12px 0;
- font-size:18px;
- cursor:pointer;
-}
+.album-btn{background:#d4af37;color:#000;padding:15px;border-radius:12px;font-weight:bold;text-align:center;margin:12px 0;font-size:18px;cursor:pointer;}
+
+/* SONG HELP CENTER */
+.help-box{background:#111;border:2px solid #d4af37;border-radius:12px;padding:20px;margin-top:20px;}
+.help-box input,.help-box textarea{
+width:100%;padding:12px;margin:10px 0;background:#000;border:1px solid #d4af37;color:#fff;border-radius:8px;}
+.help-box button{
+width:100%;padding:12px;background:#d4af37;color:#000;font-weight:bold;border-radius:8px;font-size:17px;cursor:pointer;}
 
 /* GALLERY */
 .gallery img{width:100%;border:2px solid #d4af37;border-radius:12px;margin:10px 0;}
@@ -90,6 +64,22 @@ form{background:#111;padding:20px;border-radius:12px;border:2px solid #d4af37;}
 input,textarea{width:100%;padding:12px;margin:10px 0;background:#000;border:1px solid #d4af37;color:#fff;border-radius:8px;}
 button{width:100%;padding:12px;background:#d4af37;color:#000;font-weight:bold;border-radius:8px;}
 
+/* CHAT BOX (WhatsApp style) */
+#chatBtn{
+position:fixed;bottom:80px;right:20px;width:60px;height:60px;background:#25D366;
+border-radius:50%;display:flex;justify-content:center;align-items:center;
+font-size:30px;color:#fff;cursor:pointer;z-index:999;}
+#chatWindow{
+position:fixed;bottom:150px;right:20px;width:300px;background:#111;border:2px solid #25D366;
+border-radius:12px;padding:10px;display:none;z-index:9999;}
+#chatMessages{
+height:200px;overflow-y:auto;padding:10px;background:#000;border:1px solid #25D366;border-radius:8px;margin-bottom:10px;}
+.chatBubble{
+background:#25D366;padding:8px 12px;margin:6px 0;border-radius:8px;color:#000;font-weight:bold;width:fit-content;}
+
+#chatInput{width:100%;padding:10px;background:#000;color:#fff;border:1px solid #25D366;border-radius:8px;margin-bottom:10px;}
+#sendMsg{width:100%;padding:10px;background:#25D366;color:#000;font-weight:bold;border-radius:8px;cursor:pointer;}
+
 /* FOOTER */
 footer{text-align:center;padding:20px;background:#000;border-top:2px solid #d4af37;margin-top:20px;}
 </style>
@@ -97,9 +87,7 @@ footer{text-align:center;padding:20px;background:#000;border-top:2px solid #d4af
 
 <body>
 
-<header>
-<div class="shine">ASHEESH SARKAR</div>
-</header>
+<header><div class="shine">ASHEESH SARKAR</div></header>
 
 <!-- SLIDESHOW -->
 <div class="slides">
@@ -111,10 +99,10 @@ footer{text-align:center;padding:20px;background:#000;border-top:2px solid #d4af
 <script>
 let s=0;
 setInterval(()=>{
- let slides=document.querySelectorAll(".slide");
- slides.forEach(x=>x.classList.remove("active"));
- s=(s+1)%slides.length;
- slides[s].classList.add("active");
+let slides=document.querySelectorAll(".slide");
+slides.forEach(x=>x.classList.remove("active"));
+s=(s+1)%slides.length;
+slides[s].classList.add("active");
 },3200);
 </script>
 
@@ -122,6 +110,7 @@ setInterval(()=>{
 <a href="#home">Home</a>
 <a href="#music">Videos</a>
 <a href="#album">Albums</a>
+<a href="#help">Song Help</a>
 <a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -138,7 +127,7 @@ setInterval(()=>{
 <iframe src="https://www.youtube.com/embed/nHnow-uS8C4"></iframe>
 </section>
 
-<!-- ⭐ MUSIC PLAYER RIGHT POSITION (Videos ke niche, Gallery ke upar) -->
+<!-- ALBUM / PLAYER SECTION -->
 <section id="album">
 <h2>🎵 Albums</h2>
 
@@ -146,16 +135,14 @@ setInterval(()=>{
 <div class="album-btn" onclick="openAlbum(2)">Album 2 — Hindi Romantic</div>
 
 <div class="player-box">
-
 <div id="playerTitle">Select a Track</div>
-
 <audio id="mainPlayer" controls></audio>
 
 <div class="controls">
-    <div class="control-btn" onclick="prevTrack()">⏮️</div>
-    <div class="control-btn" onclick="togglePlay()">⏯️</div>
-    <div class="control-btn" onclick="nextTrack()">⏭️</div>
-    <div class="control-btn" id="repeatBtn" onclick="toggleRepeat()">🔁</div>
+<div onclick="prevTrack()">⏮</div>
+<div onclick="togglePlay()">⏯</div>
+<div onclick="nextTrack()">⏭</div>
+<div onclick="toggleRepeat()">🔁</div>
 </div>
 
 <div id="playlistBox"></div>
@@ -164,74 +151,67 @@ setInterval(()=>{
 
 <script>
 let repeat=false;
-
-function toggleRepeat(){
- repeat=!repeat;
- document.getElementById("repeatBtn").classList.toggle("active");
-}
-
+function toggleRepeat(){repeat=!repeat;}
 function togglePlay(){
- let p=document.getElementById("mainPlayer");
- if(p.paused) p.play();
- else p.pause();
+let p=document.getElementById("mainPlayer");
+p.paused?p.play():p.pause();
 }
 
 let album1=[
- {title:"Prem Ki Vyatha 2", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Prem%20Ki%20Vyatha%202.mp3"},
- {title:"Dhakano Ki Guzaarish", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"},
- {title:"Tere Ishq Me", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Ishq%20Me.mp3"},
- {title:"Teri Baahon Me Khoya Hu", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"}
+ {title:"Prem Ki Vyatha 2",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Prem%20Ki%20Vyatha%202.mp3"},
+ {title:"Dhakano Ki Guzaarish",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"},
+ {title:"Tere Ishq Me",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Ishq%20Me.mp3"},
+ {title:"Teri Baahon Me Khoya Hu",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"}
 ];
-
 let album2=[
- {title:"Palko Me Chupa Lu", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Palko%20Me%20Chupa%20Lu%20.mp3"},
- {title:"Tere Naam Ki Dhadkan", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"},
- {title:"Tujhse Juraa Har Pal", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
+ {title:"Palko Me Chupa Lu",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Palko%20Me%20Chupa%20Lu%20.mp3"},
+ {title:"Tere Naam Ki Dhadkan",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"},
+ {title:"Tujhse Juraa Har Pal",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
 ];
 
-let currentAlbum=[];
-let index=0;
+let currentAlbum=[];let index=0;
 
-function openAlbum(n){
- currentAlbum = (n===1)? album1 : album2;
- loadPlaylist();
- playTrack(0);
+function openAlbum(a){
+currentAlbum=(a===1)?album1:album2;
+loadPlaylist();playTrack(0);
 }
 
 function loadPlaylist(){
- let box=document.getElementById("playlistBox");
- box.innerHTML="";
- currentAlbum.forEach((t,i)=>{
-  box.innerHTML+=`<div class="track" onclick="playTrack(${i})">${t.title}</div>`;
- });
+let box=document.getElementById("playlistBox");
+box.innerHTML="";
+currentAlbum.forEach((t,i)=>{
+box.innerHTML+=`<div class="track" onclick="playTrack(${i})">${t.title}</div>`;
+});
 }
 
 function playTrack(i){
- index=i;
- let song=currentAlbum[i];
- let p=document.getElementById("mainPlayer");
-
- document.getElementById("playerTitle").innerText=song.title;
- p.src=song.url;
- p.play();
-
- p.onended=()=>{
-   if(repeat){ playTrack(index); return; }
-   nextTrack();
- };
+index=i;
+let song=currentAlbum[i];
+let p=document.getElementById("mainPlayer");
+p.src=song.url;
+p.play();
+document.getElementById("playerTitle").innerText=song.title;
+p.onended=()=>repeat?playTrack(index):nextTrack();
 }
 
-function nextTrack(){
- index=(index+1)%currentAlbum.length;
- playTrack(index);
-}
-
-function prevTrack(){
- index=(index-1+currentAlbum.length)%currentAlbum.length;
- playTrack(index);
-}
+function nextTrack(){index=(index+1)%currentAlbum.length;playTrack(index);}
+function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length;playTrack(index);}
 </script>
 
+<!-- SONG HELP CENTER -->
+<section id="help">
+<h2>📩 Song Help Center</h2>
+<div class="help-box">
+<form action="https://formsubmit.co/asheeshsarkar0@gmail.com" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="text" name="topic" placeholder="Song Topic (Optional)">
+<textarea name="detail" rows="5" placeholder="Describe your song request..." required></textarea>
+<button type="submit">Send Request</button>
+</form>
+</div>
+</section>
+
+<!-- GALLERY -->
 <section id="gallery">
 <h2>Gallery</h2>
 <div class="gallery">
@@ -240,6 +220,7 @@ function prevTrack(){
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
 <h2>Contact</h2>
 <form>
@@ -252,5 +233,31 @@ function prevTrack(){
 
 <footer>© 2026 Asheesh Sarkar | All Rights Reserved.</footer>
 
+<!-- CHAT BUTTON -->
+<div id="chatBtn" onclick="toggleChat()">💬</div>
+
+<!-- CHAT WINDOW -->
+<div id="chatWindow">
+<div id="chatMessages"></div>
+<input id="chatInput" placeholder="Type your message...">
+<button id="sendMsg" onclick="sendChat()">Send</button>
+</div>
+
+<script>
+function toggleChat(){
+let w=document.getElementById("chatWindow");
+w.style.display=(w.style.display==="block")?"none":"block";
+}
+
+function sendChat(){
+let msg=document.getElementById("chatInput").value.trim();
+if(!msg)return;
+let box=document.getElementById("chatMessages");
+box.innerHTML+=`<div class="chatBubble">${msg}</div>`;
+document.getElementById("chatInput").value="";
+box.scrollTop=box.scrollHeight;
+}
+</script>
+
 </body>
-</html>
+                                </html>
