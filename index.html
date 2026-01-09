@@ -7,12 +7,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-background:#0d0d0d;
-color:#fff;
-font-family:Arial, sans-serif;
-overflow-x:hidden;
-}
+body{background:#0d0d0d;color:#fff;font-family:Arial, sans-serif;overflow-x:hidden;}
 
 /* LOADER */
 #loader{
@@ -26,7 +21,9 @@ background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
 -webkit-background-clip:text;color:transparent;
 animation:shine 3s infinite linear;
 }
-@keyframes shine{0%{background-position:-200px;}100%{background-position:200px;}}
+@keyframes shine{
+0%{background-position:-200px;}100%{background-position:200px;}
+}
 
 /* HEADER */
 header{
@@ -54,21 +51,21 @@ width:100%;height:260px;object-fit:cover;
 }
 .slide.active{opacity:1;}
 
-/* NAV */
+/* NAVIGATION */
 nav{
 background:#111;padding:12px;text-align:center;
 border-bottom:2px solid #d4af37;
 }
 nav a{
 color:#d4af37;margin:0 18px;font-size:19px;
-font-weight:bold;text-decoration:none;
+text-decoration:none;font-weight:bold;
 }
 
 /* SECTION */
 section{padding:25px;}
 h2{color:#d4af37;font-size:26px;margin-bottom:10px;}
 
-/* FLOATING CHAT BUTTONS */
+/* FLOAT CHAT BUTTONS */
 #chatFloating{
 position:fixed;bottom:20px;right:20px;
 display:flex;flex-direction:column;gap:15px;z-index:999;
@@ -115,10 +112,10 @@ border-radius:0 10px 10px 10px;
 }
 .msg-right{
 background:#DCF8C6;color:#000;align-self:flex-end;
-border-radius:10px 0 10px 10px;position:relative;
+border-radius:10px 0 10px 10px;
 }
 
-/* TICK MARK */
+/* TICK */
 .tick{
 font-size:13px;margin-top:4px;color:#777;
 }
@@ -135,8 +132,7 @@ border:1px solid #ccc;
 }
 .w-input-area button{
 width:50px;background:#25D366;border:none;
-border-radius:50%;color:white;font-size:20px;
-cursor:pointer;
+border-radius:50%;color:white;font-size:20px;cursor:pointer;
 }
 
 /* TYPING ANIMATION */
@@ -150,6 +146,7 @@ animation:blink 1s infinite;
 }
 .typing span:nth-child(2){animation-delay:0.2s;}
 .typing span:nth-child(3){animation-delay:0.4s;}
+
 @keyframes blink{
 0%{opacity:0.3;}50%{opacity:1;}100%{opacity:0.3;}
 }
@@ -180,9 +177,9 @@ style="width:90px;position:absolute;top:10px;left:10px;filter:drop-shadow(0 0 10
 
 <!-- SLIDESHOW -->
 <div class="slideshow">
-<div class="slide active"><img src="YOUR IMG"></div>
-<div class="slide"><img src="YOUR IMG"></div>
-<div class="slide"><img src="YOUR IMG"></div>
+<div class="slide active"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000017807209ad53b0203c61d191.png"></div>
+<div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000650c7209b41d602902782a9a.png"></div>
+<div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000005034720792453fffe09544aa%20(1).png"></div>
 </div>
 
 <!-- NAVIGATION -->
@@ -209,7 +206,6 @@ style="width:90px;position:absolute;top:10px;left:10px;filter:drop-shadow(0 0 10
 <div id="writerBox" class="w-chat-box">
 <div class="w-header">✍️ Songwriter Chat</div>
 <div class="w-body" id="writerMessages"></div>
-
 <div class="w-input-area">
 <input id="writerInput" type="text" placeholder="Write your lyrics...">
 <button onclick="sendWriter()">➤</button>
@@ -220,7 +216,6 @@ style="width:90px;position:absolute;top:10px;left:10px;filter:drop-shadow(0 0 10
 <div id="normalBox" class="w-chat-box">
 <div class="w-header">💬 Chat</div>
 <div class="w-body" id="normalMessages"></div>
-
 <div class="w-input-area">
 <input id="normalInput" type="text" placeholder="Type message...">
 <button onclick="sendNormal()">➤</button>
