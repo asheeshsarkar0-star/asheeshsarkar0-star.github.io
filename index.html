@@ -25,27 +25,15 @@ body{background:#0d0d0d;font-family:Arial;color:#fff;overflow-x:hidden;}
 
 /* GOLD BUTTON */
 .btn-gold{
-background:#d4af37;
-color:#000;
-padding:15px 25px;
-border-radius:12px;
-font-size:20px;
-font-weight:bold;
-text-decoration:none;
-box-shadow:0 0 15px #d4af37;
-display:inline-block;
-margin:15px auto;
+background:#d4af37;color:#000;padding:15px 25px;border-radius:12px;
+font-size:20px;font-weight:bold;text-decoration:none;
+box-shadow:0 0 15px #d4af37;display:inline-block;margin:15px auto;
 }
 
 /* HEADER */
 header{text-align:center;padding:20px;background:#000;border-bottom:2px solid #d4af37;}
-.shine{
-font-size:32px;
-font-weight:bold;
-background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
--webkit-background-clip:text;
-color:transparent;
-}
+.shine{font-size:32px;font-weight:bold;background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+-webkit-background-clip:text;color:transparent;}
 
 /* NAV */
 nav{text-align:center;padding:14px 0;background:#111;border-bottom:2px solid #d4af37;}
@@ -69,8 +57,7 @@ iframe{width:100%;height:220px;border:2px solid #d4af37;border-radius:10px;margi
 #mainPlayer{width:100%;border-radius:10px;margin-bottom:15px;}
 
 .controls{display:flex;justify-content:center;gap:20px;margin:15px 0;}
-.controls div{
-font-size:28px;background:#d4af37;color:#000;width:55px;height:55px;
+.controls div{font-size:28px;background:#d4af37;color:#000;width:55px;height:55px;
 border-radius:50%;display:flex;justify-content:center;align-items:center;
 cursor:pointer;font-weight:bold;box-shadow:0 0 10px #d4af37aa;}
 
@@ -101,7 +88,7 @@ footer{text-align:center;padding:20px;background:#000;border-top:2px solid #d4af
   <div class="shine">ASHEESH SARKAR</div>
 </header>
 
-<!-- ✅ ONLY ONE INSTALL BUTTON -->
+<!-- INSTALL BUTTON -->
 <div style="text-align:center;">
   <a class="btn-gold" href="https://www.mediafire.com/file/uru0sdqumomqhfs/Asheesh+App.apk/file">INSTALL APP</a>
 </div>
@@ -167,10 +154,7 @@ slides[s].classList.add("active");
 <script>
 let repeat=false;
 function toggleRepeat(){repeat=!repeat;}
-function togglePlay(){
-let p=document.getElementById("mainPlayer");
-p.paused?p.play():p.pause();
-}
+function togglePlay(){let p=document.getElementById("mainPlayer"); p.paused?p.play():p.pause();}
 
 let album1=[
  {title:"Prem Ki Vyatha 2",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Prem%20Ki%20Vyatha%202.mp3"},
@@ -185,19 +169,13 @@ let album2=[
  {title:"Tujhse Juraa Har Pal",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
 ];
 
-let currentAlbum=[];let index=0;
+let currentAlbum=[]; let index=0;
 
-function openAlbum(a){
-currentAlbum=(a===1)?album1:album2;
-loadPlaylist();playTrack(0);
-}
-
+function openAlbum(a){currentAlbum=(a===1)?album1:album2; loadPlaylist(); playTrack(0);}
 function loadPlaylist(){
 let box=document.getElementById("playlistBox");
 box.innerHTML="";
-currentAlbum.forEach((t,i)=>{
-box.innerHTML+=`<div class="track" onclick="playTrack(${i})">${t.title}</div>`;
-});
+currentAlbum.forEach((t,i)=>{box.innerHTML+=`<div class="track" onclick="playTrack(${i})">${t.title}</div>`;});
 }
 
 function playTrack(i){
@@ -210,8 +188,8 @@ document.getElementById("playerTitle").innerText=song.title;
 p.onended=()=>repeat?playTrack(index):nextTrack();
 }
 
-function nextTrack(){index=(index+1)%currentAlbum.length;playTrack(index);}
-function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length;playTrack(index);}
+function nextTrack(){index=(index+1)%currentAlbum.length; playTrack(index);}
+function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length; playTrack(index);}
 </script>
 
 <section id="help">
@@ -239,4 +217,18 @@ function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length;pla
 <form>
 <input type="text" placeholder="Your Name">
 <input type="email" placeholder="Email">
-<textarea rows="5" placeholder="Message"></textarea
+<textarea rows="5" placeholder="Message"></textarea>
+<button>Send</button>
+</form>
+</section>
+
+<footer>
+© 2026 Asheesh Sarkar | All Rights Reserved.
+</footer>
+
+<!-- ⭐ CLOUDFlare WEB ANALYTICS ⭐ -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+data-cf-beacon='{"token": "e6d045f126df4e429d6baed93b672743"}'></script>
+
+</body>
+  </html>
