@@ -103,10 +103,10 @@ footer{text-align:center;padding:20px;background:#000;border-top:2px solid #d4af
 <script>
 let s=0;
 setInterval(()=>{
-let slides=document.querySelectorAll(".slide");
-slides.forEach(x=>x.classList.remove("active"));
-s=(s+1)%slides.length;
-slides[s].classList.add("active");
+  let slides=document.querySelectorAll(".slide");
+  slides.forEach(x=>x.classList.remove("active"));
+  s=(s+1)%slides.length;
+  slides[s].classList.add("active");
 },3200);
 </script>
 
@@ -163,21 +163,28 @@ let album2=[
 
 let currentAlbum=[]; let index=0;
 
-function openAlbum(a){currentAlbum=(a===1)?album1:album2; loadPlaylist(); playTrack(0);}
+function openAlbum(a){
+  currentAlbum=(a===1)?album1:album2;
+  loadPlaylist();
+  playTrack(0);
+}
+
 function loadPlaylist(){
-let box=document.getElementById("playlistBox");
-box.innerHTML="";
-currentAlbum.forEach((t,i)=>{box.innerHTML+=`<div class="track" onclick="playTrack(${i})">${t.title}</div>`;});
+  let box=document.getElementById("playlistBox");
+  box.innerHTML="";
+  currentAlbum.forEach((t,i)=>{
+    box.innerHTML+=`<div class="track" onclick="playTrack(${i})">${t.title}</div>`;
+  });
 }
 
 function playTrack(i){
-index=i;
-let song=currentAlbum[i];
-let p=document.getElementById("mainPlayer");
-p.src=song.url;
-p.play();
-document.getElementById("playerTitle").innerText=song.title;
-p.onended=()=>repeat?playTrack(index):nextTrack();
+  index=i;
+  let song=currentAlbum[i];
+  let p=document.getElementById("mainPlayer");
+  p.src=song.url;
+  p.play();
+  document.getElementById("playerTitle").innerText=song.title;
+  p.onended=()=>repeat?playTrack(index):nextTrack();
 }
 
 function nextTrack(){index=(index+1)%currentAlbum.length; playTrack(index);}
@@ -233,4 +240,4 @@ function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length; pl
 </script>
 
 </body>
-              </html>
+  </html>
