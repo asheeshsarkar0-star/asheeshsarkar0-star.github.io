@@ -31,12 +31,11 @@ h2{color:#d4af37;font-size:26px;text-shadow:0 0 8px #d4af37;margin-bottom:10px;}
 /* YOUTUBE */
 iframe{width:100%;height:220px;border:2px solid #d4af37;border-radius:10px;margin:12px 0;}
 
-/* MUSIC PLAYER BOX */
+/* MUSIC PLAYER */
 .player-box{background:#111;padding:20px;border-radius:12px;border:2px solid #d4af37;margin-top:20px;}
 #playerTitle{color:#d4af37;font-size:20px;margin-bottom:8px;}
 #mainPlayer{width:100%;border-radius:10px;margin-bottom:15px;}
 
-/* CONTROLS */
 .controls{
  display:flex;
  justify-content:center;
@@ -56,12 +55,7 @@ iframe{width:100%;height:220px;border:2px solid #d4af37;border-radius:10px;margi
  cursor:pointer;
  box-shadow:0 0 12px #d4af37aa;
 }
-
-/* REPEAT ACTIVE */
-#repeatBtn.active{
- background:#fff;
- color:#000;
-}
+#repeatBtn.active{background:#fff;color:#000;}
 
 /* PLAYLIST */
 .track{
@@ -144,7 +138,7 @@ setInterval(()=>{
 <iframe src="https://www.youtube.com/embed/nHnow-uS8C4"></iframe>
 </section>
 
-<!-- ⭐ FINAL MUSIC PLAYER SECTION -->
+<!-- ⭐ MUSIC PLAYER RIGHT POSITION (Videos ke niche, Gallery ke upar) -->
 <section id="album">
 <h2>🎵 Albums</h2>
 
@@ -173,19 +167,15 @@ let repeat=false;
 
 function toggleRepeat(){
  repeat=!repeat;
- let p=document.getElementById("mainPlayer");
- p.loop = repeat;
  document.getElementById("repeatBtn").classList.toggle("active");
 }
 
-/* TOGGLE PLAY/PAUSE */
 function togglePlay(){
  let p=document.getElementById("mainPlayer");
  if(p.paused) p.play();
  else p.pause();
 }
 
-/* ALBUM DATA */
 let album1=[
  {title:"Prem Ki Vyatha 2", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Prem%20Ki%20Vyatha%202.mp3"},
  {title:"Dhakano Ki Guzaarish", url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"},
@@ -218,17 +208,15 @@ function loadPlaylist(){
 
 function playTrack(i){
  index=i;
-
  let song=currentAlbum[i];
  let p=document.getElementById("mainPlayer");
 
+ document.getElementById("playerTitle").innerText=song.title;
  p.src=song.url;
  p.play();
 
- document.getElementById("playerTitle").innerText=song.title;
-
  p.onended=()=>{
-   if(p.loop){ playTrack(index); return; }
+   if(repeat){ playTrack(index); return; }
    nextTrack();
  };
 }
