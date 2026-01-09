@@ -42,7 +42,7 @@ nav a{color:#d4af37;text-decoration:none;font-size:19px;margin:0 20px;font-weigh
 /* SLIDESHOW */
 .slides{width:100%;height:260px;position:relative;overflow:hidden;}
 .slide{width:100%;height:260px;position:absolute;opacity:0;transition:.8s;}
-slide img{width:100%;height:260px;object-fit:cover;}
+.slide img{width:100%;height:260px;object-fit:cover;}
 .slide.active{opacity:1;}
 
 /* SECTIONS */
@@ -105,7 +105,7 @@ footer{text-align:center;padding:20px;background:#000;border-top:2px solid #d4af
 <div class="slides">
   <div class="slide active"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000017807209ad53b0203c61d191.png"></div>
   <div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000650c7209b41d602902782a9a.png"></div>
-  <div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000005034720792453fffe09544aa (1).png"></div>
+  <div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000005034720792453fffe09544aa%20(1).png"></div>
 </div>
 
 <script>
@@ -226,12 +226,13 @@ function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length; pl
 © 2026 Asheesh Sarkar | All Rights Reserved.
 </footer>
 
-<!-- Privacy-friendly analytics by Plausible -->
+<!-- Plausible Analytics -->
 <script async src="https://plausible.io/js/pa-t2nEum8htOBv43f2Zh8b6.js"></script>
 <script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};
+  plausible.init = plausible.init || function(i){ plausible.o=i||{} };
+  plausible.init();
 </script>
 
 </body>
-  </html>
+</html>
