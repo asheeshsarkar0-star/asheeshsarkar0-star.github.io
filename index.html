@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Asheesh Sarkar - Premium Music Website</title>
 
+<!-- ✅ PWA Manifest -->
+<link rel="manifest" href="manifest.json">
+
+<!-- ✅ Icons -->
+<link rel="icon" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+
+<!-- ✅ Service Worker Register -->
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js")
+  .then(() => console.log("Service Worker Registered"))
+  .catch(err => console.log("SW Error:", err));
+}
+</script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#0d0d0d;font-family:Arial;color:#fff;overflow-x:hidden;}
@@ -64,7 +80,7 @@ form{background:#111;padding:20px;border-radius:12px;border:2px solid #d4af37;}
 input,textarea{width:100%;padding:12px;margin:10px 0;background:#000;border:1px solid #d4af37;color:#fff;border-radius:8px;}
 button{width:100%;padding:12px;background:#d4af37;color:#000;font-weight:bold;border-radius:8px;}
 
-/* CHAT BOX (WhatsApp style) */
+/* CHAT BOX */
 #chatBtn{
 position:fixed;bottom:80px;right:20px;width:60px;height:60px;background:#25D366;
 border-radius:50%;display:flex;justify-content:center;align-items:center;
@@ -166,7 +182,7 @@ let album1=[
 let album2=[
  {title:"Palko Me Chupa Lu",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Palko%20Me%20Chupa%20Lu%20.mp3"},
  {title:"Tere Naam Ki Dhadkan",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"},
- {title:"Tujhse Juraa Har Pal",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
+ {title:"Tujhse Juraa Har Pal",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
 ];
 
 let currentAlbum=[];let index=0;
@@ -260,4 +276,4 @@ box.scrollTop=box.scrollHeight;
 </script>
 
 </body>
-                                </html>
+ </html>
