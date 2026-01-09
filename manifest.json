@@ -1,0 +1,21 @@
+{
+  "name": "Asheesh Sarkar Official App",
+  "short_name": "Asheesh App",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "Official Music & Artist App by Asheesh Sarkar",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
