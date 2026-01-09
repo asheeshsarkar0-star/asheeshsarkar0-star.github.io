@@ -7,66 +7,107 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#0d0d0d;color:#fff;font-family:Arial, sans-serif;overflow-x:hidden;}
+body{
+background:#0d0d0d;
+color:#fff;
+font-family:Arial, sans-serif;
+overflow-x:hidden;
+}
 
 /* LOADER */
-#loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;justify-content:center;align-items:center;flex-direction:column;z-index:9999;}
-.loader-text{font-size:34px;font-weight:bold;background:linear-gradient(90deg,#d4af37,#fff,#d4af37);-webkit-background-clip:text;color:transparent;animation:shine 3s infinite linear;}
+#loader{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:#000;display:flex;justify-content:center;
+align-items:center;flex-direction:column;z-index:9999;
+}
+.loader-text{
+font-size:34px;font-weight:bold;
+background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+-webkit-background-clip:text;color:transparent;
+animation:shine 3s infinite linear;
+}
 @keyframes shine{0%{background-position:-200px;}100%{background-position:200px;}}
 
 /* HEADER */
-header{text-align:center;padding:20px;background:#000;border-bottom:2px solid #d4af37;position:relative;}
-.shine{font-size:33px;font-weight:700;background:linear-gradient(90deg,#d4af37,#fff,#d4af37);-webkit-background-clip:text;color:transparent;}
+header{
+text-align:center;padding:20px;background:#000;
+border-bottom:2px solid #d4af37;position:relative;
+}
+.shine{
+font-size:33px;font-weight:700;
+background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+-webkit-background-clip:text;color:transparent;
+}
 
 /* SLIDESHOW */
-.slideshow{width:100%;height:260px;position:relative;overflow:hidden;border-bottom:3px solid #d4af37;box-shadow:0 0 20px #d4af37aa;margin-bottom:10px;}
-.slide{width:100%;height:260px;position:absolute;opacity:0;transition:opacity 1.5s ease-in-out;}
-.slide img{width:100%;height:260px;object-fit:cover;}
+.slideshow{
+width:100%;height:260px;position:relative;
+overflow:hidden;border-bottom:3px solid #d4af37;
+box-shadow:0 0 20px #d4af37aa;margin-bottom:10px;
+}
+.slide{
+width:100%;height:260px;position:absolute;
+opacity:0;transition:opacity 1.5s ease-in-out;
+}
+.slide img{
+width:100%;height:260px;object-fit:cover;
+}
 .slide.active{opacity:1;}
 
-/* NAVIGATION */
-nav{background:#111;padding:12px;text-align:center;border-bottom:2px solid #d4af37;}
-nav a{color:#d4af37;margin:0 18px;font-size:19px;text-decoration:none;font-weight:bold;}
+/* NAV */
+nav{
+background:#111;padding:12px;text-align:center;
+border-bottom:2px solid #d4af37;
+}
+nav a{
+color:#d4af37;margin:0 18px;font-size:19px;
+font-weight:bold;text-decoration:none;
+}
 
-/* SECTIONS */
+/* SECTION */
 section{padding:25px;}
-h2{color:#d4af37;font-size:26px;text-shadow:0 0 10px #d4af37;margin-bottom:10px;}
+h2{color:#d4af37;font-size:26px;margin-bottom:10px;}
 
-/* FLOAT CHAT BUTTONS */
+/* FLOATING CHAT BUTTONS */
 #chatFloating{
 position:fixed;bottom:20px;right:20px;
 display:flex;flex-direction:column;gap:15px;z-index:999;
 }
 .w-btn{
-width:60px;height:60px;background:#25D366;color:#fff;
-border-radius:50%;display:flex;justify-content:center;
-align-items:center;font-size:28px;cursor:pointer;
+width:60px;height:60px;background:#25D366;
+color:#fff;border-radius:50%;
+display:flex;justify-content:center;align-items:center;
+font-size:28px;cursor:pointer;
 box-shadow:0 0 15px #25D366aa;
 }
 
 /* WHATSAPP CHAT BOX */
 .w-chat-box{
 position:fixed;bottom:90px;right:20px;
-width:90%;max-width:330px;background:#ECE5DD;
-display:none;flex-direction:column;
-border-radius:12px;box-shadow:0 0 15px #000000aa;z-index:9999;
+width:90%;max-width:330px;
+background:#ECE5DD;display:none;
+flex-direction:column;border-radius:12px;
+box-shadow:0 0 15px #000000aa;z-index:9999;
 }
 
 /* HEADER */
 .w-header{
 background:#075E54;color:white;padding:12px;
-font-size:18px;font-weight:bold;border-radius:12px 12px 0 0;
+font-size:18px;font-weight:bold;
+border-radius:12px 12px 0 0;
 }
 
-/* BODY */
+/* CHAT WALLPAPER */
 .w-body{
-height:260px;overflow-y:auto;padding:10px;background:#E5DDD5;
+height:260px;overflow-y:auto;padding:10px;
+background:url('https://i.imgur.com/0Zg7QZb.jpeg');
+background-size:cover;background-position:center;
 }
 
 /* CHAT BUBBLES */
 .msg-left,.msg-right{
-max-width:75%;padding:10px;margin:8px 0;font-size:15px;
-border-radius:10px;
+max-width:75%;padding:10px;margin:8px 0;
+font-size:15px;border-radius:10px;
 }
 .msg-left{
 background:white;color:#000;align-self:flex-start;
@@ -74,24 +115,56 @@ border-radius:0 10px 10px 10px;
 }
 .msg-right{
 background:#DCF8C6;color:#000;align-self:flex-end;
-border-radius:10px 0 10px 10px;
+border-radius:10px 0 10px 10px;position:relative;
 }
+
+/* TICK MARK */
+.tick{
+font-size:13px;margin-top:4px;color:#777;
+}
+.tick.blue{color:#34B7F1;}
 
 /* INPUT */
 .w-input-area{
-display:flex;gap:5px;padding:10px;background:#f0f0f0;border-radius:0 0 12px 12px;
+display:flex;gap:5px;padding:10px;background:#f0f0f0;
+border-radius:0 0 12px 12px;
 }
 .w-input-area input{
-flex:1;padding:10px;border-radius:25px;border:1px solid #ccc;
+flex:1;padding:10px;border-radius:25px;
+border:1px solid #ccc;
 }
 .w-input-area button{
-width:50px;background:#25D366;border:none;border-radius:50%;
-color:white;font-size:20px;cursor:pointer;
+width:50px;background:#25D366;border:none;
+border-radius:50%;color:white;font-size:20px;
+cursor:pointer;
+}
+
+/* TYPING ANIMATION */
+.typing{
+background:#fff;color:#000;padding:8px;border-radius:10px;
+font-size:13px;width:60px;display:flex;gap:4px;
+}
+.typing span{
+width:6px;height:6px;background:#999;border-radius:50%;
+animation:blink 1s infinite;
+}
+.typing span:nth-child(2){animation-delay:0.2s;}
+.typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes blink{
+0%{opacity:0.3;}50%{opacity:1;}100%{opacity:0.3;}
 }
 
 /* FOOTER */
-footer{text-align:center;padding:20px;background:#000;color:#d4af37;border-top:2px solid #d4af37;margin-top:20px;}
+footer{
+text-align:center;padding:20px;background:#000;
+color:#d4af37;border-top:2px solid #d4af37;margin-top:20px;
+}
 </style>
+
+<!-- SOUND EFFECTS -->
+<audio id="sendSound" src="https://assets.mixkit.co/sfx/download/mixkit-fast-double-click-on-mobile-phone-2134.wav"></audio>
+<audio id="receiveSound" src="https://assets.mixkit.co/sfx/download/mixkit-message-pop-alert-2354.wav"></audio>
+
 </head>
 
 <body>
@@ -100,8 +173,8 @@ footer{text-align:center;padding:20px;background:#000;color:#d4af37;border-top:2
 <div id="loader"><div class="loader-text">ASHEESH SARKAR</div></div>
 
 <header>
-<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000175c71faa530f751e499f752.png" 
-style="width:90px;height:auto;position:absolute;top:10px;left:10px;filter:drop-shadow(0 0 10px #00c8ff);" />
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000175c71faa530f751e499f752.png"
+style="width:90px;position:absolute;top:10px;left:10px;filter:drop-shadow(0 0 10px #00c8ff);" />
 <div class="shine">ASHEESH SARKAR</div>
 </header>
 
@@ -112,7 +185,7 @@ style="width:90px;height:auto;position:absolute;top:10px;left:10px;filter:drop-s
 <div class="slide"><img src="YOUR IMG"></div>
 </div>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <nav>
 <a href="#home">Home</a>
 <a href="#music">Videos</a>
@@ -121,119 +194,164 @@ style="width:90px;height:auto;position:absolute;top:10px;left:10px;filter:drop-s
 <a href="#contact">Contact</a>
 </nav>
 
-<!-- ABOUT -->
 <section id="home">
 <h2>About Me</h2>
 <p>Main Asheesh Sarkar hoon — ek music composer, songwriter, aur creator.</p>
 </section>
 
-<!-- your videos, player, gallery, contact same rahenge -->
-
-<!-- FLOATING CHAT BUTTONS -->
+<!-- FLOAT CHAT BUTTONS -->
 <div id="chatFloating">
-   <div class="w-btn" onclick="openWriter()">✍️</div>
-   <div class="w-btn" onclick="openNormal()">💬</div>
+<div class="w-btn" onclick="openWriter()">✍️</div>
+<div class="w-btn" onclick="openNormal()">💬</div>
 </div>
 
 <!-- SONGWRITER CHAT -->
 <div id="writerBox" class="w-chat-box">
-   <div class="w-header">✍️ Songwriter Chat</div>
-   <div class="w-body" id="writerMessages"></div>
-   <div class="w-input-area">
-      <input id="writerInput" type="text" placeholder="Write your lyrics...">
-      <button onclick="sendWriter()">➤</button>
-   </div>
+<div class="w-header">✍️ Songwriter Chat</div>
+<div class="w-body" id="writerMessages"></div>
+
+<div class="w-input-area">
+<input id="writerInput" type="text" placeholder="Write your lyrics...">
+<button onclick="sendWriter()">➤</button>
+</div>
 </div>
 
 <!-- NORMAL CHAT -->
 <div id="normalBox" class="w-chat-box">
-   <div class="w-header">💬 Chat With Me</div>
-   <div class="w-body" id="normalMessages"></div>
-   <div class="w-input-area">
-      <input id="normalInput" type="text" placeholder="Type message...">
-      <button onclick="sendNormal()">➤</button>
-   </div>
+<div class="w-header">💬 Chat</div>
+<div class="w-body" id="normalMessages"></div>
+
+<div class="w-input-area">
+<input id="normalInput" type="text" placeholder="Type message...">
+<button onclick="sendNormal()">➤</button>
+</div>
 </div>
 
 <footer>© 2026 Asheesh Sarkar | All Rights Reserved.</footer>
 
 <script>
 
-/* LOADER */
 window.onload=()=>setTimeout(()=>document.getElementById("loader").style.display="none",900);
 
 /* SLIDESHOW */
 let slideIndex=0;
 function showSlides(){
-let slides=document.querySelectorAll(".slide");
-slides.forEach(s=>s.classList.remove("active"));
-slideIndex=(slideIndex+1)%slides.length;
-slides[slideIndex].classList.add("active");
+let s=document.querySelectorAll(".slide");
+s.forEach(x=>x.classList.remove("active"));
+slideIndex=(slideIndex+1)%s.length;
+s[slideIndex].classList.add("active");
 setTimeout(showSlides,3200);
 }
 showSlides();
 
-/* CHAT SYSTEM */
-function detectLang(msg){
-let hindi=/[अ-ह]/;
-if(hindi.test(msg))return "hindi";
-if(msg.toLowerCase().includes("hindi"))return "forceHindi";
-if(msg.toLowerCase().includes("english"))return "forceEnglish";
+/* LANGUAGE DETECT */
+function detectLang(m){
+let h=/[अ-ह]/;
+if(h.test(m))return "hindi";
+if(m.toLowerCase().includes("hindi"))return "forceHindi";
+if(m.toLowerCase().includes("english"))return "forceEnglish";
 return "english";
 }
 
+/* SOUND */
+function playSend(){sendSound.play();}
+function playReceive(){receiveSound.play();}
+
+/* TYPING */
+function typingEffect(box){
+let t=document.createElement("div");
+t.className="typing msg-left";
+t.innerHTML="<span></span><span></span><span></span>";
+box.appendChild(t);
+box.scrollTop=box.scrollHeight;
+return t;
+}
+
 /* OPEN CHAT */
-function openWriter(){
-document.getElementById("writerBox").style.display="flex";
-document.getElementById("normalBox").style.display="none";
-}
-function openNormal(){
-document.getElementById("normalBox").style.display="flex";
-document.getElementById("writerBox").style.display="none";
-}
+function openWriter(){writerBox.style.display="flex";normalBox.style.display="none";}
+function openNormal(){normalBox.style.display="flex";writerBox.style.display="none";}
 
-/* SONGWRITER MESSAGE */
+/* SONGWRITER SEND */
 function sendWriter(){
-let input=document.getElementById("writerInput");
-let msg=input.value.trim(); if(!msg)return;
+let input=writerInput.value.trim();
+if(!input)return;
 
-let box=document.getElementById("writerMessages");
-box.innerHTML+=`<div class='msg-right'>${msg}</div>`;
+let box=writerMessages;
+box.innerHTML+=`
+<div class='msg-right'>
+${input}
+<div class='tick'>✔</div>
+</div>`;
+playSend();
+writerInput.value="";
 
-let lang=detectLang(msg);
-let reply="";
+/* TYPING */
+let t=typingEffect(box);
 
-if(lang==="hindi"||lang==="forceHindi")
-reply="आपके लिखे हुए गीत प्राप्त हो गए 🎵";
-else reply="Your lyrics have been received 🎵";
+setTimeout(()=>{
+t.remove();
+
+let lang=detectLang(input);
+let reply=(lang==="hindi"||lang==="forceHindi")
+?"आपके लिखे हुए गीत प्राप्त हो गए 🎵"
+:"Your lyrics have been received 🎵";
 
 box.innerHTML+=`<div class='msg-left'>${reply}</div>`;
-input.value="";
+playReceive();
+
+/* BLUE TICK */
+document.querySelectorAll("#writerMessages .tick").forEach(e=>{
+e.classList.add("blue");e.innerHTML="✔✔";
+});
+
 box.scrollTop=box.scrollHeight;
+},900);
 }
 
-/* NORMAL MESSAGE */
+/* NORMAL CHAT SEND */
 function sendNormal(){
-let input=document.getElementById("normalInput");
-let msg=input.value.trim(); if(!msg)return;
+let input=normalInput.value.trim();
+if(!input)return;
 
-let box=document.getElementById("normalMessages");
-box.innerHTML+=`<div class='msg-right'>${msg}</div>`;
+let box=normalMessages;
+box.innerHTML+=`
+<div class='msg-right'>
+${input}
+<div class='tick'>✔</div>
+</div>`;
+playSend();
+normalInput.value="";
 
-let lang=detectLang(msg);
+/* TYPING */
+let t=typingEffect(box);
+
+setTimeout(()=>{
+t.remove();
+
+let lang=detectLang(input);
 let reply="";
 
 if(lang==="hindi"||lang==="forceHindi")
 reply="मैं यहाँ हूँ, बताइए कैसे मदद करूँ?";
 else if(lang==="forceEnglish")
-reply="I'm here, tell me how I can help you.";
-else reply="Haan bolo, how can I help you?";
+reply="I’m here, tell me how I can help you.";
+else
+reply="Haan bolo, how can I help you?";
 
 box.innerHTML+=`<div class='msg-left'>${reply}</div>`;
-input.value="";
+playReceive();
+
+/* BLUE TICK */
+document.querySelectorAll("#normalMessages .tick").forEach(e=>{
+e.classList.add("blue");e.innerHTML="✔✔";
+});
+
 box.scrollTop=box.scrollHeight;
+
+},900);
+
 }
 
 </script>
 </body>
-        </html>
+</html>
