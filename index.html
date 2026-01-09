@@ -3,411 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asheesh Sarkar - Official Premium Website</title>
+<title>Asheesh Sarkar - Official Website</title>
 
 <style>
-/* BASIC */
-body {
-    margin: 0;
-    background: #0d0d0d;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    overflow-x: hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d0d0d;color:#fff;font-family:Arial, sans-serif;overflow-x:hidden;}
 
-/* GOLD SHINE NAME */
-.shine {
-    font-size: 32px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: shineAnim 3s infinite linear;
-}
-@keyframes shineAnim {
-    0% { background-position: -200px; }
-    100% { background-position: 200px; }
-}
-
-/* ANIMATION */
-.fade-in { animation: fadeIn 1.5s ease; }
-.slide-up { animation: slideUp 1.5s ease; }
-
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes slideUp { from { transform:translateY(30px);opacity:0;} to { transform:translateY(0);opacity:1;} }
+/* LOADER */
+#loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;justify-content:center;align-items:center;flex-direction:column;z-index:9999;}
+.loader-text{font-size:34px;font-weight:bold;background:linear-gradient(90deg,#d4af37,#fff,#d4af37);-webkit-background-clip:text;color:transparent;animation:shine 3s infinite linear;}
+@keyframes shine{0%{background-position:-200px;}100%{background-position:200px;}}
 
 /* HEADER */
-header {
-    text-align: center;
-    padding: 20px 0;
-    background: #000;
-    border-bottom: 2px solid #d4af37;
-}
-header img { width: 150px; }
+header{text-align:center;padding:20px;background:#000;border-bottom:2px solid #d4af37;position:relative;}
+#goldLogo{position:absolute;top:15px;left:15px;font-size:35px;font-weight:800;background:linear-gradient(180deg,#fff,#d4af37,#9c7b1d);-webkit-background-clip:text;color:transparent;text-shadow:0 0 12px #d4af37aa;}
+.shine{font-size:33px;font-weight:700;background:linear-gradient(90deg,#d4af37,#fff,#d4af37);-webkit-background-clip:text;color:transparent;}
 
-/* SLIDESHOW */
-.slideshow-container {
-    position: relative;
-    width: 100%;
-    height: 230px;
-    overflow: hidden;
-}
-.mySlides {
-    width: 100%;
-    height: 230px;
-    position: absolute;
-    animation: fadeIn 2s ease;
-}
-.mySlides img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    border-bottom: 3px solid #d4af37;
-}
+/* PREMIUM SLIDESHOW */
+.slideshow{width:100%;height:260px;position:relative;overflow:hidden;border-bottom:3px solid #d4af37;box-shadow:0 0 20px #d4af37aa;margin-bottom:10px;}
+.slide{width:100%;height:260px;position:absolute;opacity:0;transition:opacity 1.5s ease-in-out;}
+.slide img{width:100%;height:260px;object-fit:cover;filter:brightness(1.1);}
+.slide.active{opacity:1;}
 
 /* NAVIGATION */
-nav {
-    background: #111;
-    border-bottom: 2px solid #d4af37;
-    padding: 12px;
-    text-align: center;
-}
-nav a {
-    color: #d4af37;
-    margin: 0 18px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-}
+nav{background:#111;padding:12px;text-align:center;border-bottom:2px solid #d4af37;}
+nav a{color:#d4af37;margin:0 18px;font-size:19px;text-decoration:none;font-weight:bold;}
 
 /* SECTIONS */
-section { padding: 25px; }
+section{padding:25px;}
+h2{color:#d4af37;font-size:26px;text-shadow:0 0 10px #d4af37;margin-bottom:10px;}
 
-h2 {
-    color: #d4af37;
-    text-shadow: 0 0 10px #d4af37;
-    font-size: 28px;
-}
+/* VIDEOS */
+iframe{width:100%;height:220px;border-radius:12px;border:2px solid #d4af37;margin:12px 0;}
 
-/* YOUTUBE VIDEO */
-.video-box {
-    margin: 20px 0;
-}
-iframe {
-    width: 100%;
-    height: 220px;
-    border-radius: 10px;
-    border: 2px solid #d4af37;
-}
+/* MUSIC PLAYER - CUSTOM GOLD */
+.music-box{background:#111;border:2px solid #d4af37;border-radius:12px;padding:12px;margin:12px 0;}
+.music-title{color:#d4af37;font-size:18px;margin-bottom:8px;}
+audio{width:100%;border-radius:12px;}
+audio::-webkit-media-controls-panel{background:#000;border-radius:10px;border:2px solid #d4af37;}
+audio::-webkit-media-controls-play-button{background:#d4af37;border-radius:50%;}
+audio::-webkit-media-controls-timeline{background:#222;border-radius:20px;}
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display{color:#d4af37;}
 
-/* MUSIC PLAYER BOX */
-.music-box {
-    background: #111;
-    border: 2px solid #d4af37;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 12px 0;
-}
-.music-title {
-    color: #d4af37;
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-audio { width: 100%; }
+/* ALBUM SLIDER */
+.album-slider{display:flex;overflow-x:auto;gap:18px;padding:12px 0;}
+.album-card{min-width:150px;background:#111;border:2px solid #d4af37;border-radius:12px;padding:10px;text-align:center;}
+.album-card img{width:100%;height:150px;border-radius:10px;border:2px solid #d4af37;}
+.album-card h4{color:#d4af37;margin-top:6px;}
 
 /* GALLERY */
-.gallery img {
-    width: 100%;
-    border-radius: 12px;
-    border: 2px solid #d4af37;
-    margin: 10px 0;
-}
+.gallery img{width:100%;border:2px solid #d4af37;border-radius:12px;margin:10px 0;}
 
-/* CONTACT FORM */
-form {
-    background: #111;
-    border: 2px solid #d4af37;
-    border-radius: 10px;
-    padding: 20px;
-}
-input, textarea {
-    width: 100%;
-    background: #000;
-    border: 1px solid #d4af37;
-    color: #fff;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-}
-button {
-    width: 100%;
-    background: #d4af37;
-    color: #000;
-    padding: 12px;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 10px;
-}
+/* CONTACT */
+form{background:#111;border:2px solid #d4af37;border-radius:12px;padding:20px;}
+input,textarea{width:100%;background:#000;border:1px solid #d4af37;color:#fff;padding:12px;margin:10px 0;border-radius:8px;}
+button{width:100%;background:#d4af37;color:#000;padding:12px;font-weight:bold;border:none;border-radius:8px;font-size:17px;}
 
-/* FLOATING MUSIC PLAYER (BOTTOM BAR) */
-#floatingPlayer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #000;
-    border-top: 2px solid #d4af37;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    z-index: 9999;
-}
-#floatingPlayer audio { width: 90%; }
+/* FLOATING PLAYER */
+#floatingPlayer{position:fixed;bottom:0;width:100%;background:#000;border-top:2px solid #d4af37;padding:10px;text-align:center;z-index:999;}
+#floatingPlayer audio{width:90%;}
 
-/* ASHEESH AI CHAT */
-#ai-btn {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 55px;
-    height: 55px;
-    background: #d4af37;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 9999;
-}
+/* SIDE MENU */
+#sideMenu{position:fixed;top:50%;right:15px;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:999;}
+.menu-btn{width:52px;height:52px;background:#d4af37;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:22px;color:#000;cursor:pointer;box-shadow:0 0 10px #d4af37aa;font-weight:bold;}
 
-#ai-box {
-    width: 90%;
-    max-width: 340px;
-    background: #111;
-    border: 2px solid #d4af37;
-    padding: 15px;
-    border-radius: 12px;
-    color: #fff;
-    position: fixed;
-    bottom: 150px;
-    right: 20px;
-    display: none;
-    box-shadow: 0 0 20px #d4af37aa;
-}
+/* AI CHAT */
+#ai-btn{position:fixed;bottom:80px;right:20px;width:55px;height:55px;background:#d4af37;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:26px;cursor:pointer;z-index:999;}
+#ai-box{position:fixed;bottom:150px;right:20px;width:90%;max-width:320px;background:#111;border:2px solid #d4af37;border-radius:12px;padding:15px;display:none;z-index:9999;}
+#ai-output{border:1px solid #d4af37;padding:10px;border-radius:10px;min-height:60px;background:#000;}
 
-#ai-box h3 {
-    margin-top: 0;
-    color: #d4af37;
-}
-
-#ai-input {
-    width: 100%;
-    height: 70px;
-    border-radius: 10px;
-    border: 2px solid #d4af37;
-    background: #000;
-    color: #fff;
-    padding: 8px;
-}
-
-#ai-output {
-    margin-top: 10px;
-    padding: 10px;
-    background: #000;
-    border-radius: 8px;
-    border: 1px solid #d4af37;
-}
+/* FOOTER */
+footer{text-align:center;padding:20px;background:#000;color:#d4af37;border-top:2px solid #d4af37;margin-top:20px;}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="fade-in">
-    <div class="shine">ASHEESH SARKAR</div>
+<!-- LOADING -->
+<div id="loader"><div class="loader-text">ASHEESH SARKAR</div></div>
+
+<header>
+<div id="goldLogo">AS</div>
+<div class="shine">ASHEESH SARKAR</div>
 </header>
 
-<!-- SLIDESHOW -->
-<div class="slideshow-container fade-in">
-
-    <div class="mySlides">
-        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000017807209ad53b0203c61d191.png">
-    </div>
-
-    <div class="mySlides">
-        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000650c7209b41d602902782a9a.png">
-    </div>
-
-    <div class="mySlides">
-        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000005034720792453fffe09544aa%20(1).png">
-    </div>
-
+<!-- PREMIUM SLIDESHOW -->
+<div class="slideshow">
+<div class="slide active"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000017807209ad53b0203c61d191.png"></div>
+<div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000650c7209b41d602902782a9a.png"></div>
+<div class="slide"><img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000005034720792453fffe09544aa%20(1).png"></div>
 </div>
 
-<script>
-let slideIndex = 0;
-function showSlides() {
-    let slides = document.getElementsByClassName("mySlides");
-    for (let i=0;i<slides.length;i++) slides[i].style.display="none";
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-    slides[slideIndex-1].style.display="block";
-    setTimeout(showSlides, 3200);
-}
-showSlides();
-</script>
-
-<!-- NAVIGATION -->
-<nav class="fade-in">
-    <a href="#home">Home</a>
-    <a href="#music">Videos</a>
-    <a href="#player">Music Player</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
+<!-- NAV -->
+<nav>
+<a href="#home">Home</a>
+<a href="#music">Videos</a>
+<a href="#player">Music</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
 </nav>
 
-<!-- ABOUT SECTION -->
-<section id="home" class="fade-in">
-    <h2>About Me</h2>
-    <p>Namaste! Main Asheesh Sarkar hoon — ek music composer, songwriter aur content creator.</p>
+<!-- ABOUT -->
+<section id="home">
+<h2>About Me</h2>
+<p>Main Asheesh Sarkar hoon — ek music composer, songwriter, aur creator.</p>
 </section>
 
-<!-- MUSIC VIDEOS -->
-<section id="music" class="fade-in">
-    <h2>My Music Videos</h2>
-
-    <div class="video-box slide-up">
-        <h3>⭐ Prem Ki Vyatha</h3>
-        <iframe src="https://www.youtube.com/embed/_FR2jTaPEio"></iframe>
-    </div>
-
-    <div class="video-box slide-up">
-        <h3>⭐ Kaash Tere Hote</h3>
-        <iframe src="https://www.youtube.com/embed/H6ofrzz8yXM"></iframe>
-    </div>
-
-    <div class="video-box slide-up">
-        <h3>⭐ Dhadkano Ki Guzarish</h3>
-        <iframe src="https://www.youtube.com/embed/nHnow-uS8C4"></iframe>
-    </div>
-
+<!-- VIDEOS -->
+<section id="music">
+<h2>My Music Videos</h2>
+<iframe src="https://www.youtube.com/embed/_FR2jTaPEio"></iframe>
+<iframe src="https://www.youtube.com/embed/H6ofrzz8yXM"></iframe>
+<iframe src="https://www.youtube.com/embed/nHnow-uS8C4"></iframe>
 </section>
 
 <!-- MP3 PLAYER -->
-<section id="player" class="fade-in">
-    <h2>🎧 MP3 Music Player</h2>
-
-    <div class="music-box"><div class="music-title">Dhakano Ki Guzaarish</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio></div>
-
-    <div class="music-box"><div class="music-title">Palko Me Chupa Lu</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Palko%20Me%20Chupa%20Lu%20.mp3"></audio></div>
-
-    <div class="music-box"><div class="music-title">Prem Ki Vyatha 2</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Prem%20Ki%20Vyatha%202.mp3"></audio></div>
-
-    <div class="music-box"><div class="music-title">Tere Ishq Me</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Ishq%20Me.mp3"></audio></div>
-
-    <div class="music-box"><div class="music-title">Tere Naam Ki Dhadkan</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"></audio></div>
-
-    <div class="music-box"><div class="music-title">Teri Baahon Me Khoya Hu</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"></audio></div>
-
-    <div class="music-box"><div class="music-title">Tujhse Juraaa Har Pal</div>
-        <audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"></audio></div>
-
+<section id="player">
+<h2>🎧 MP3 Player</h2>
+<div class="music-box">
+<div class="music-title">Dhakano Ki Guzaarish</div>
+<audio controls src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio>
+</div>
 </section>
 
+<!-- ALBUMS -->
+<h2 style="padding-left:25px;">🎵 Albums</h2>
+<div class="album-slider">
+<div class="album-card">
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000017807209ad53b0203c61d191.png">
+<h4>Prem Ki Vyatha</h4>
+</div>
+</div>
+
 <!-- GALLERY -->
-<section id="gallery" class="fade-in">
-    <h2>Gallery</h2>
-    <div class="gallery">
-        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000005034720792453fffe09544aa%20(1).png">
-        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_0000000067c87207a6d265ab32f0a34c.png">
-        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000589872078168a1caa90997b3.png">
-        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000862c71fa8ef54358a8a6c2ea.png">
-        <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_00000000650c7209b41d602902782a9a.png">
-    </div>
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000067c87207a6d265ab32f0a34c.png">
+</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="fade-in">
-    <h2>Contact</h2>
-
-    <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea rows="5" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-
-    <p>📌 YouTube: <a style="color:#d4af37" href="https://youtube.com/@beatjunctionn">Click Here</a></p>
-    <p>📌 Instagram Music: <a style="color:#d4af37" href="https://www.instagram.com/junction.beat">Click Here</a></p>
-    <p>📌 Instagram Reaction: <a style="color:#d4af37" href="https://www.instagram.com/reaction_time23">Click Here</a></p>
-    <p>📌 Facebook: <a style="color:#d4af37" href="https://www.facebook.com/share/1C8p4hwmhg/">Click Here</a></p>
+<section id="contact">
+<h2>Contact</h2>
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="5" placeholder="Your Message"></textarea>
+<button>Send</button>
+</form>
 </section>
 
 <!-- FLOATING PLAYER -->
 <div id="floatingPlayer">
-    <audio controls autoplay src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio>
+<audio controls autoplay src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Dhakano%20Ki%20Guzaarish.mp3"></audio>
 </div>
 
-<!-- ASHEESH AI -->
+<!-- SIDE MENU -->
+<div id="sideMenu">
+<div class="menu-btn" onclick="go('home')">🏠</div>
+<div class="menu-btn" onclick="go('music')">🎬</div>
+<div class="menu-btn" onclick="go('contact')">✉️</div>
+</div>
+
+<!-- AI CHAT -->
 <div id="ai-btn" onclick="toggleAI()">💬</div>
 
 <div id="ai-box">
-    <h3>Asheesh AI</h3>
-    <div id="ai-output">Hi Asheesh 👋</div>
-    <textarea id="ai-input" placeholder="Type here..."></textarea>
-    <button onclick="sendAI()" style="margin-top:10px;padding:8px 12px;border:none;background:#d4af37;color:#000;border-radius:6px;font-weight:bold;width:100%;">Send</button>
+<h3 style="color:#d4af37;">Asheesh AI</h3>
+<div id="ai-output">Hello Asheesh 👋</div>
+<textarea id="ai-input" placeholder="Type here..." style="width:100%;height:70px;background:#000;border:2px solid #d4af37;color:#fff;margin-top:10px;border-radius:10px;"></textarea>
+<button onclick="sendAI()" style="width:100%;margin-top:10px;background:#d4af37;color:#000;padding:10px;border-radius:10px;">Send</button>
 </div>
 
+<footer>© 2026 Asheesh Sarkar | All Rights Reserved.</footer>
+
 <script>
-function toggleAI() {
-    let box = document.getElementById("ai-box");
-    box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+/* LOADER */
+window.onload=()=>setTimeout(()=>document.getElementById("loader").style.display="none",900);
+
+/* SLIDESHOW */
+let slideIndex=0;
+function showSlides(){
+let slides=document.querySelectorAll(".slide");
+slides.forEach(s=>s.classList.remove("active"));
+slideIndex=(slideIndex+1)%slides.length;
+slides[slideIndex].classList.add("active");
+setTimeout(showSlides,3200);
 }
+showSlides();
 
-function sendAI() {
-    let input = document.getElementById("ai-input").value.trim();
-    let output = document.getElementById("ai-output");
+/* SMOOTH SCROLL */
+function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth"});}
 
-    if (input === "") return;
-
-    let msg = input.toLowerCase();
-    let reply = "Main samajh raha hoon, aur seekh raha hoon 🙂";
-
-    if (msg.includes("hello") || msg.includes("hi") || msg.includes("namaste")) {
-        reply = "Namaste Asheesh! Kaise ho? 😊";
-    }
-    else if (msg.includes("music") || msg.includes("song")) {
-        reply = "Aapke music section me sab premium tracks available hain 🎧🔥";
-    }
-    else if (msg.includes("kaun") || msg.includes("who are you")) {
-        reply = "Main Asheesh AI hoon — aapka personal assistant 🤖💛";
-    }
-    else if (msg.includes("help") || msg.includes("madad")) {
-        reply = "Main website aur music dono me help kar sakta hoon 😊";
-    }
-    else if (msg.includes("bye")) {
-        reply = "Bye Asheesh! Apna khayal rakhna 💛";
-    }
-    else {
-        reply = "Samajh gaya! Kuch aur puchna chaho to batao 😊";
-    }
-
-    output.innerHTML = "<b>You:</b> " + input + "<br><br><b>AI:</b> " + reply;
-    document.getElementById("ai-input").value = "";
+/* AI CHAT */
+function toggleAI(){let b=document.getElementById("ai-box");b.style.display=b.style.display==="block"?"none":"block";}
+function sendAI(){
+let msg=document.getElementById("ai-input").value.trim();
+if(!msg)return;
+let out=document.getElementById("ai-output");
+let reply="Samajh gaya bhai 🙂";
+if(msg.includes("hi"))reply="Namaste Asheesh ❤️";
+if(msg.includes("music"))reply="Sab music premium quality me available hai 🎧";
+if(msg.includes("help"))reply="Main yahan hu bhai, bol kya chahiye 🔥";
+out.innerHTML="<b>You:</b> "+msg+"<br><br><b>AI:</b> "+reply;
+document.getElementById("ai-input").value="";
 }
 </script>
 
-<!-- FOOTER -->
-<footer>
-    © 2026 Asheesh Sarkar | All Rights Reserved.
-</footer>
-
 </body>
-  </html>
+</html>
