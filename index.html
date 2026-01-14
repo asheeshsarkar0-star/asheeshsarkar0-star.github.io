@@ -134,6 +134,7 @@ setInterval(()=>{
 
 <div class="album-btn" onclick="openAlbum(1)">Album 1 — Hindi + Sanskrit</div>
 <div class="album-btn" onclick="openAlbum(2)">Album 2 — Romantic</div>
+<div class="album-btn" onclick="openAlbum(3)">Album 3 — Kaash Tere Hote</div>
 
 <div class="player-box">
 <div id="playerTitle">Select a Track</div>
@@ -168,10 +169,15 @@ let album2=[
  {title:"Tujhse Juraa Har Pal",url:"https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
 ];
 
+let album3=[
+ {title:"Kaash Tere Hote (Version 1)",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/refs/heads/main/Kaash%20Tere%20Hote%20(1).mp3"},
+ {title:"Kaash Tere Hote (Version 2)",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/refs/heads/main/Kaash%20Tere%20Hote.mp3"}
+];
+
 let currentAlbum=[]; let index=0;
 
 function openAlbum(a){
-  currentAlbum=(a===1)?album1:album2;
+  currentAlbum=(a===1)?album1:(a===2)?album2:album3;
   loadPlaylist();
   playTrack(0);
 }
@@ -247,4 +253,4 @@ function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length; pl
 </script>
 
 </body>
-  </html>
+</html>
