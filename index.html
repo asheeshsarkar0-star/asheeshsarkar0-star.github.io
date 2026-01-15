@@ -147,11 +147,9 @@ setInterval(()=>{
 </section>
 
 <script>
-let repeat=false;
-
 let album=[
- {title:"Kaash Tere Hote (Version 1)", url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Kaash%20Tere%20Hote%20(1).mp3"},
- {title:"Kaash Tere Hote (Version 2)", url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Kaash%20Tere%20Hote.mp3"}
+ {title:"Kaash Tere Hote (Version 1)", url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/refs/heads/main/Kaash%20Tere%20Hote%20(1).mp3"},
+ {title:"Kaash Tere Hote (Version 2)", url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/refs/heads/main/Kaash%20Tere%20Hote.mp3"}
 ];
 
 let index=0;
@@ -163,16 +161,14 @@ function loadPlaylist(){
   box.innerHTML+=`<div class='track' onclick='playTrack(${i})'>${t.title}</div>`;
  });
 }
-
 loadPlaylist();
 
 function playTrack(i){
  index=i;
- let song=album[i];
  let p=document.getElementById("mainPlayer");
- p.src=song.url;
+ p.src=album[i].url;
  p.play();
- document.getElementById("playerTitle").innerText=song.title;
+ document.getElementById("playerTitle").innerText=album[i].title;
 }
 
 function togglePlay(){
@@ -214,4 +210,4 @@ function prevTrack(){
 </footer>
 
 </body>
- </html>
+</html>
