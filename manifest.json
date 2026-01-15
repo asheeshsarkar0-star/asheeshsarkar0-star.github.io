@@ -6,8 +6,8 @@
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#000000",
-  "theme_color": "#000000",
-  "description": "Official Music & Artist App by Asheesh Sarkar",
+  "theme_color": "#d4af37",
+  "description": "Ultra Premium Music App - Songs, Videos, Gallery & Artist World",
   "icons": [
     {
       "src": "icon-192.png",
