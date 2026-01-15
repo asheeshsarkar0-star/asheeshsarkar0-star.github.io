@@ -7,16 +7,14 @@
 
 <!-- SEO -->
 <meta name="description" content="Official Music Website of Asheesh Sarkar – Composer • Songwriter • Artist">
-<meta name="keywords" content="Asheesh Sarkar, Music, Hindi Songs, Composer, Artist, Songwriter">
-<meta property="og:title" content="Asheesh Sarkar - Music Website">
-<meta property="og:description" content="Listen to Albums, Watch Videos & Explore Music by Asheesh Sarkar.">
-<meta property="og:image" content="cover.png">
+<meta name="keywords" content="Asheesh Sarkar, Music, Songs, Hindi, Album, Composer">
 <meta name="theme-color" content="#d4af37">
 
 <style>
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
-    background:#0d0d0d;
+    background:#050505;
     color:#fff;
     font-family:Arial;
     overflow-x:hidden;
@@ -25,9 +23,10 @@ body{
 /* HEADER */
 header{
     text-align:center;
-    padding:20px;
+    padding:22px;
     background:#000;
     border-bottom:3px solid #d4af37;
+    box-shadow:0 0 25px #d4af37aa;
     position:sticky;
     top:0;
     z-index:1000;
@@ -35,92 +34,100 @@ header{
 .shine{
     font-size:34px;
     font-weight:bold;
-    background:linear-gradient(90deg,#d4af37,#ffffff,#d4af37);
+    background:linear-gradient(90deg,#d4af37,#ffffff,#b16cff,#d4af37);
     -webkit-background-clip:text;
     color:transparent;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
-    background:#111;
-    border-bottom:2px solid #d4af37;
+    background:#0c0c0c;
     text-align:center;
     padding:12px 0;
+    border-bottom:2px solid #d4af37;
+    box-shadow:0 0 20px #000;
 }
 nav a{
     color:#d4af37;
     text-decoration:none;
-    margin:0 20px;
+    margin:0 18px;
     font-size:18px;
     font-weight:bold;
 }
 
-/* SLIDESHOW */
-.slides{
+/* BANNER */
+.banner{
     width:100%;
-    height:240px;
-    overflow:hidden;
-    position:relative;
-    margin-top:10px;
-}
-.slide{
-    position:absolute;
-    width:100%;
-    height:240px;
-    opacity:0;
-    transition:1s;
-}
-.slide img{
-    width:100%;
-    height:240px;
-    object-fit:cover;
-}
-.slide.active{
-    opacity:1;
+    height:280px;
+    background:url("https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/refs/heads/main/file_000000006e687209bab84b93c50c5727.png") no-repeat center;
+    background-size:cover;
+    box-shadow:0 0 25px #d4af37aa;
+    border-bottom:3px solid #d4af37;
 }
 
-/* SECTIONS */
-section{
-    padding:25px;
-}
+/* SECTION */
+section{padding:25px;}
 h2{
     color:#d4af37;
-    margin-bottom:15px;
     font-size:26px;
+    margin-bottom:15px;
+    text-shadow:0 0 10px #d4af37;
 }
 
-/* VIDEOS */
+/* VIDEO */
 iframe{
     width:100%;
     height:200px;
-    border-radius:12px;
     border:2px solid #d4af37;
+    border-radius:12px;
     margin-bottom:15px;
+    box-shadow:0 0 20px #d4af37aa;
 }
 
-/* PLAYER BOX */
+/* ---- PLAYER ---- */
 .player-box{
-    background:#111;
+    background:#0f0f0f;
     padding:20px;
-    border-radius:12px;
-    border:2px solid #d4af37;
+    border-radius:14px;
+    border:2px solid #b16cff;
+    box-shadow:0 0 25px #b16cffaa;
 }
+
+.album-switch{
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+.album-switch button{
+    flex:1;
+    padding:12px;
+    background:#d4af37;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 15px #d4af37aa;
+}
+
 #playerTitle{
-    font-size:20px;
     color:#d4af37;
     margin-bottom:10px;
 }
+
 .track{
     padding:12px;
     background:#000;
     border:1px solid #d4af37;
     border-radius:10px;
-    margin-bottom:6px;
+    margin-bottom:8px;
     cursor:pointer;
 }
 .track:hover{
     background:#222;
 }
+
+/* CONTROLS */
 .controls{
     display:flex;
     justify-content:center;
@@ -130,14 +137,15 @@ iframe{
 .controls div{
     width:55px;
     height:55px;
-    background:#d4af37;
     border-radius:50%;
+    background:#d4af37;
     color:#000;
-    font-size:28px;
     display:flex;
     justify-content:center;
     align-items:center;
+    font-size:26px;
     cursor:pointer;
+    box-shadow:0 0 20px #d4af37;
 }
 
 /* GALLERY */
@@ -146,19 +154,21 @@ iframe{
     border-radius:12px;
     border:2px solid #d4af37;
     margin-bottom:12px;
+    box-shadow:0 0 20px #d4af37aa;
 }
 
 /* CONTACT */
 form{
-    background:#111;
+    background:#0f0f0f;
+    border:2px solid #b16cff;
     padding:20px;
     border-radius:12px;
-    border:2px solid #d4af37;
+    box-shadow:0 0 25px #b16cffaa;
 }
-input, textarea{
+input,textarea{
     width:100%;
     padding:12px;
-    margin-bottom:15px;
+    margin-bottom:12px;
     border-radius:10px;
     border:1px solid #d4af37;
     background:#000;
@@ -168,10 +178,10 @@ button{
     width:100%;
     padding:12px;
     border:none;
+    border-radius:10px;
     background:#d4af37;
     color:#000;
     font-size:18px;
-    border-radius:10px;
     cursor:pointer;
 }
 
@@ -180,8 +190,9 @@ footer{
     text-align:center;
     padding:20px;
     background:#000;
-    border-top:2px solid #d4af37;
-    margin-top:20px;
+    border-top:3px solid #b16cff;
+    box-shadow:0 -5px 25px #b16cffaa;
+    margin-top:30px;
 }
 </style>
 </head>
@@ -200,120 +211,119 @@ footer{
     <a href="#contact">Contact</a>
 </nav>
 
-<!-- SLIDES -->
-<div class="slides">
-    <div class="slide active"><img src="slide1.png"></div>
-    <div class="slide"><img src="slide2.png"></div>
-</div>
+<div class="banner" id="home"></div>
 
-<script>
-let s=0;
-setInterval(()=>{
-    let slides=document.querySelectorAll(".slide");
-    slides.forEach(x=>x.classList.remove("active"));
-    s=(s+1)%slides.length;
-    slides[s].classList.add("active");
-},3000);
-</script>
-
-<section id="home">
-    <h2>About Me</h2>
-    <p>Main Asheesh Sarkar — Music Composer & Songwriter.</p>
+<section>
+<h2>About Me</h2>
+<p>Main Asheesh Sarkar — Music Composer & Songwriter.</p>
 </section>
 
 <section id="videos">
-    <h2>My Music Videos</h2>
-    <iframe src="https://www.youtube.com/embed/_FR2jTaPEio"></iframe>
-    <iframe src="https://www.youtube.com/embed/H6ofrzz8yXM"></iframe>
+<h2>My Music Videos</h2>
+<iframe src="https://www.youtube.com/embed/_FR2jTaPEio"></iframe>
+<iframe src="https://www.youtube.com/embed/H6ofrzz8yXM"></iframe>
 </section>
 
 <section id="albums">
-    <h2>🎵 Albums</h2>
+<h2>🎵 Albums</h2>
 
-    <div style="display:flex; gap:10px; margin-bottom:15px;">
-        <button onclick="switchAlbum(1)" style="flex:1;padding:12px;background:#d4af37;color:#000;font-weight:bold;border:none;border-radius:10px;">Album 1</button>
-        <button onclick="switchAlbum(2)" style="flex:1;padding:12px;background:#d4af37;color:#000;font-weight:bold;border:none;border-radius:10px;">Album 2</button>
-    </div>
+<div class="album-switch">
+<button onclick="switchAlbum(1)">Album 1</button>
+<button onclick="switchAlbum(2)">Album 2</button>
+</div>
 
-    <div class="player-box">
-        <div id="playerTitle">Select a Track</div>
+<div class="player-box">
+<div id="playerTitle">Select a Track</div>
+<audio id="mainPlayer" controls></audio>
 
-        <audio id="mainPlayer" controls></audio>
+<div class="controls">
+  <div onclick="prevTrack()">⏮</div>
+  <div onclick="togglePlay()">⏯</div>
+  <div onclick="nextTrack()">⏭</div>
+</div>
 
-        <div class="controls">
-            <div onclick="prevTrack()">⏮</div>
-            <div onclick="togglePlay()">⏯</div>
-            <div onclick="nextTrack()">⏭</div>
-        </div>
-
-        <div id="playlistBox"></div>
-    </div>
+<div id="playlistBox"></div>
+</div>
 </section>
 
 <script>
+/* ---- ALL SONGS ---- */
+
 let album1=[
- {title:"Kaash Tere Hote (Version 1)",url:"Kaash Tere Hote (1).mp3"}
+ {title:"Dhadkano Ki Guzarish",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Dhakano%20Ki%20Guzaarish.mp3"},
+ {title:"Kaash Tere Hote",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Kaash%20Tere%20Hote.mp3"},
+ {title:"Palko Me Chupa Lu",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Palko%20Me%20Chupa%20Lu%20.mp3"},
+ {title:"Prem Ki Vyatha 2",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Prem%20Ki%20Vyatha%202.mp3"},
+ {title:"Tere Ishq Me",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Tere%20Ishq%20Me.mp3"}
 ];
 
 let album2=[
- {title:"Kaash Tere Hote (Version 2)",url:"Kaash Tere Hote.mp3"}
+ {title:"Tere Naam Ki Dhadkan",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"},
+ {title:"Kaash Tere Hote (Cover)",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Kaash%20Tere%20Hote%20(1).mp3"},
+ {title:"Teri Baahon Me",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"},
+ {title:"Tujhse Juraa Har Pal",url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
 ];
 
 let currentAlbum=album1;
 let index=0;
 
 function switchAlbum(a){
-    currentAlbum = (a===1) ? album1 : album2;
-    loadPlaylist();
-    playTrack(0);
+ currentAlbum = (a===1) ? album1 : album2;
+ loadPlaylist();
+ playTrack(0);
 }
 
 function loadPlaylist(){
-    let box=document.getElementById("playlistBox");
-    box.innerHTML="";
-    currentAlbum.forEach((song,i)=>{
-        box.innerHTML+=`<div class='track' onclick='playTrack(${i})'>${song.title}</div>`;
-    });
+ let box=document.getElementById("playlistBox");
+ box.innerHTML="";
+ currentAlbum.forEach((song,i)=>{
+    box.innerHTML+=`<div class='track' onclick='playTrack(${i})'>${song.title}</div>`;
+ });
 }
 loadPlaylist();
 
 function playTrack(i){
-    index=i;
-    let p=document.getElementById("mainPlayer");
-    p.src=currentAlbum[i].url;
-    p.play();
-    document.getElementById("playerTitle").innerText=currentAlbum[i].title;
+ index=i;
+ let p=document.getElementById("mainPlayer");
+ p.src=currentAlbum[i].url;
+ p.play();
+ document.getElementById("playerTitle").innerText=currentAlbum[i].title;
 }
 
 function togglePlay(){
-    let p=document.getElementById("mainPlayer");
-    p.paused ? p.play() : p.pause();
+ let p=document.getElementById("mainPlayer");
+ p.paused ? p.play() : p.pause();
 }
+
 function nextTrack(){
-    index=(index+1)%currentAlbum.length;
-    playTrack(index);
+ index=(index+1)%currentAlbum.length;
+ playTrack(index);
 }
+
 function prevTrack(){
-    index=(index-1+currentAlbum.length)%currentAlbum.length;
-    playTrack(index);
+ index=(index-1+currentAlbum.length)%currentAlbum.length;
+ playTrack(index);
 }
 </script>
 
 <section id="gallery">
 <h2>Gallery</h2>
 <div class="gallery">
-    <img src="gallery1.png">
-    <img src="gallery2.png">
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000017807209ad53b0203c61d191.png">
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000005034720792453fffe09544aa%20(1).png">
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000650c7209b41d602902782a9a.png">
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000589872078168a1caa90997b3.png">
+<img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000862c71fa8ef54358a8a6c2ea.png">
 </div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
 <form>
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Email">
-    <textarea rows="5" placeholder="Message"></textarea>
-    <button>Send</button>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email">
+<textarea rows="5" placeholder="Message"></textarea>
+<button>Send Message</button>
 </form>
 </section>
 
