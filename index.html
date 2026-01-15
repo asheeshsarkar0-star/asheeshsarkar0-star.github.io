@@ -37,11 +37,11 @@ body{
 .layer.bg1{
    background:url("https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000006e687209bab84b93c50c5727.png");
    z-index:1;
-   filter:brightness(0.8);
+   filter:brightness(0.85);
 }
 .layer.bg2{
    background:url("https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_000000005034720792453fffe09544aa%20(1).png");
-   opacity:0.4;
+   opacity:0.45;
    mix-blend-mode:screen;
    z-index:2;
 }
@@ -59,9 +59,7 @@ body{
    text-shadow:0 0 25px #000;
 }
 
-/* ===========================
-      NAVIGATION
-   =========================== */
+/* NAVIGATION */
 header{
     text-align:center;
     padding:20px;
@@ -82,17 +80,15 @@ nav a{
     font-weight:bold;
 }
 
-/* ===========================
-      3D FEATURE CARDS
-   =========================== */
-.section{
-   padding:25px;
-}
+/* SECTIONS */
+.section{padding:25px;}
 h2{
    font-size:26px;
    margin-bottom:15px;
    color:#d4af37;
 }
+
+/* Cards */
 .card{
    background:rgba(255,255,255,0.05);
    padding:20px;
@@ -101,16 +97,13 @@ h2{
    margin-bottom:15px;
    backdrop-filter:blur(12px);
    transition:0.3s;
-   transform-style:preserve-3d;
 }
 .card:hover{
-   transform:translateY(-8px) scale(1.03);
+   transform:translateY(-8px);
    box-shadow:0 8px 25px rgba(212,175,55,0.35);
 }
 
-/* ===========================
-      ALBUM PLAYER
-   =========================== */
+/* PLAYER */
 .player-box{
    background:#111;
    padding:20px;
@@ -125,9 +118,7 @@ h2{
    margin-bottom:7px;
    cursor:pointer;
 }
-.track:hover{
-   background:#222;
-}
+.track:hover{background:#222;}
 .controls{
    display:flex;
    justify-content:center;
@@ -142,19 +133,37 @@ h2{
    font-size:28px;
    color:#000;
    display:flex;
-   justify-content:center;
    align-items:center;
+   justify-content:center;
    cursor:pointer;
 }
 
-/* ===========================
-      FOOTER
-   =========================== */
+/* GALLERY */
+.gallery img{
+   width:100%;
+   border-radius:12px;
+   margin-bottom:15px;
+   border:2px solid #d4af37;
+}
+
+/* FOOTER PRO */
 footer{
-   background:#000;
-   padding:25px;
-   border-top:2px solid #d4af37;
+   background:#050005;
+   padding:35px 20px;
    text-align:center;
+   border-top:3px solid #d4af37;
+   box-shadow:0 -10px 35px #d4af37;
+}
+footer h3{
+   font-size:26px;
+   background:linear-gradient(90deg,#d4af37,#ffffff,#f0c96a);
+   -webkit-background-clip:text;
+   color:transparent;
+   margin-bottom:5px;
+}
+footer p{
+   color:#d4af97;
+   margin:6px 0;
 }
 </style>
 </head>
@@ -173,9 +182,7 @@ footer{
    <a href="#contact">Contact</a>
 </nav>
 
-<!-- =======================
-        3D PARALLAX HERO
-     ======================= -->
+<!-- PARALLAX HERO -->
 <div class="hero" id="home">
    <div class="layer bg1" data-speed="3"></div>
    <div class="layer bg2" data-speed="6"></div>
@@ -183,20 +190,17 @@ footer{
 </div>
 
 <script>
-document.addEventListener("mousemove", function(e){
+document.addEventListener("mousemove", (e)=>{
    document.querySelectorAll(".layer").forEach(layer=>{
       let speed = layer.getAttribute("data-speed");
-      let x = (window.innerWidth - e.pageX*speed)/100;
-      let y = (window.innerHeight - e.pageY*speed)/100;
-      layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      let x=(window.innerWidth - e.pageX*speed)/100;
+      let y=(window.innerHeight - e.pageY*speed)/100;
+      layer.style.transform=`translateX(${x}px) translateY(${y}px)`;
    });
 });
 </script>
 
-<!-- =======================
-         SECTIONS
-     ======================= -->
-
+<!-- ABOUT -->
 <div class="section" id="about">
 <h2>About Me</h2>
 <div class="card">
@@ -204,6 +208,7 @@ document.addEventListener("mousemove", function(e){
 </div>
 </div>
 
+<!-- ALBUMS -->
 <div class="section" id="albums">
 <h2>My Albums</h2>
 
@@ -213,7 +218,6 @@ document.addEventListener("mousemove", function(e){
 <div class="player-box">
    <div id="playerTitle">Select Track</div>
    <audio id="mainPlayer" controls></audio>
-
    <div id="playlistBox"></div>
 
    <div class="controls">
@@ -235,7 +239,7 @@ let album1=[
 
 let album2=[
  {title:"Tere Naam Ki Dhadkan", url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Tere%20Naam%20Ki%20Dhadkan%20.mp3"},
- {title:"Kaash Tere Hote (Cover)", url:"#"},
+ {title:"Kaash Tere Hote (Cover)", url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Kaash%20Tere%20Hote.mp3"},
  {title:"Teri Baahon Me", url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Teri%20Baahon%20Me%20Khoya%20Hu%20.mp3"},
  {title:"Tujhse Juraa Har Pal", url:"https://github.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/raw/main/Tujhse%20Juraa%20Har%20Pal%20.mp3"}
 ];
@@ -244,15 +248,15 @@ let currentAlbum=album1;
 let index=0;
 
 function switchAlbum(n){
- currentAlbum = (n===1)? album1 : album2;
+ currentAlbum=(n===1)?album1:album2;
  loadPlaylist();
  playTrack(0);
 }
 function loadPlaylist(){
  document.getElementById("playlistBox").innerHTML="";
  currentAlbum.forEach((s,i)=>{
-  document.getElementById("playlistBox").innerHTML +=
-  `<div class='track' onclick='playTrack(${i})'>${s.title}</div>`;
+   document.getElementById("playlistBox").innerHTML+=
+   `<div class="track" onclick="playTrack(${i})">${s.title}</div>`;
  });
 }
 loadPlaylist();
@@ -265,16 +269,22 @@ function playTrack(i){
  document.getElementById("playerTitle").innerText=currentAlbum[i].title;
 }
 function togglePlay(){let p=document.getElementById("mainPlayer"); p.paused?p.play():p.pause();}
-function nextTrack(){ index=(index+1)%currentAlbum.length; playTrack(index); }
-function prevTrack(){ index=(index-1+currentAlbum.length)%currentAlbum.length; playTrack(index); }
+function nextTrack(){index=(index+1)%currentAlbum.length; playTrack(index);}
+function prevTrack(){index=(index-1+currentAlbum.length)%currentAlbum.length; playTrack(index);}
 </script>
 
+<!-- GALLERY -->
 <div class="section" id="gallery">
 <h2>Gallery</h2>
-<div class="card"><img src="gallery1.png" style="width:100%;border-radius:12px;"></div>
-<div class="card"><img src="gallery2.png" style="width:100%;border-radius:12px;"></div>
+
+<div class="gallery">
+   <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_0000000017807209ad53b0203c61d191.png">
+   <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000589872078168a1caa90997b3.png">
+   <img src="https://raw.githubusercontent.com/asheeshsarkar0-star/asheeshsarkar0-star.github.io/main/file_00000000862c71fa8ef54358a8a6c2ea.png">
+</div>
 </div>
 
+<!-- CONTACT -->
 <div class="section" id="contact">
 <h2>Contact</h2>
 <div class="card">
@@ -282,8 +292,11 @@ function prevTrack(){ index=(index-1+currentAlbum.length)%currentAlbum.length; p
 </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
-© 2026 Asheesh Sarkar — Premium 3D Artist Website  
+   <h3>ASHEESH SARKAR – Official Artist Website</h3>
+   <p>Premium Music • Albums • Lyrics • Production</p>
+   <p>© 2026 All Rights Reserved.</p>
 </footer>
 
 </body>
